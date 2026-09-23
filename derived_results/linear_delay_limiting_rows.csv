@@ -1,0 +1,11 @@
+layout,delay_s,radius,constraint,vehicle,sample
+Front,0.0,3.492084818385276,acceleration_upper,1,21
+Rear,0.0,2.6421479681010167,acceleration_upper,1,21
+Front,0.1,3.1870099788595327,acceleration_upper,1,30
+Rear,0.1,2.508095506176795,acceleration_upper,1,22
+Front,0.2,2.6580205385183056,acceleration_upper,1,43
+Rear,0.2,2.3771727487708594,acceleration_upper,1,23
+Front,0.30000000000000004,2.1325639789776902,acceleration_upper,1,44
+Rear,0.30000000000000004,2.252705805148331,acceleration_upper,1,24
+Front,0.4,1.7312464892475623,acceleration_upper,1,46
+Rear,0.4,1.5901246729173015,acceleration_upper,10,219

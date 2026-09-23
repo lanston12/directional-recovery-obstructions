@@ -1,0 +1,30 @@
+{
+  "category_counts": {
+    "even": {
+      "A": 167,
+      "C": 1
+    },
+    "front": {
+      "A": 144,
+      "D": 24
+    },
+    "middle": {
+      "A": 42,
+      "C": 9,
+      "B": 93,
+      "D": 24
+    },
+    "rear": {
+      "A": 37,
+      "B": 105,
+      "C": 2,
+      "D": 24
+    }
+  },
+  "B_records": 198,
+  "B_first_crossings_verified": 198,
+  "wave_pre_collision_normalized_loss": 0.009046928373130274,
+  "wave_loss_budget": 0.03,
+  "wave_budget_exceeded_before_collision": false,
+  "wave_collision_time_s": 19.3
+}

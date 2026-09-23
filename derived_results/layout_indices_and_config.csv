@@ -1,0 +1,11 @@
+problem,N_followers,layout,active_count,active_indices,target_gap_m,target_speed_mps,horizon_s,terminal_window_s,disturbance,information_structure
+sampled-linear,12,Front,2,"[1,2]",20.0,20.0,60.0,0.0,four-coordinate homogeneous box; support on 0--4 s,delayed predecessor-following affine rule
+sampled-linear,12,Distributed,2,"[3,7]",20.0,20.0,60.0,0.0,four-coordinate homogeneous box; support on 0--4 s,delayed predecessor-following affine rule
+sampled-linear,12,Middle,2,"[6,7]",20.0,20.0,60.0,0.0,four-coordinate homogeneous box; support on 0--4 s,delayed predecessor-following affine rule
+sampled-linear,12,Rear,2,"[11,12]",20.0,20.0,60.0,0.0,four-coordinate homogeneous box; support on 0--4 s,delayed predecessor-following affine rule
+nonlinear,40,front,4,"[1,2,3,4]",24.0,20.0,60.0,3.0,requested leader pulse unless the case says follower 8,0.2 s received-state delay; declared command delay; sparse active set
+nonlinear,40,even,4,"[1,14,27,40]",24.0,20.0,60.0,3.0,requested leader pulse unless the case says follower 8,0.2 s received-state delay; declared command delay; sparse active set
+nonlinear,40,middle,4,"[19,20,21,22]",24.0,20.0,60.0,3.0,requested leader pulse unless the case says follower 8,0.2 s received-state delay; declared command delay; sparse active set
+nonlinear,40,rear,4,"[37,38,39,40]",24.0,20.0,60.0,3.0,requested leader pulse unless the case says follower 8,0.2 s received-state delay; declared command delay; sparse active set
+nonlinear,20,even,2,"[1,20]",24.0,20.0,60.0,3.0,requested leader pulse unless the case says follower 8,0.2 s received-state delay; declared command delay; sparse active set
+nonlinear,80,even,8,"[1,12,24,35,46,57,69,80]",24.0,20.0,60.0,3.0,requested leader pulse unless the case says follower 8,0.2 s received-state delay; declared command delay; sparse active set

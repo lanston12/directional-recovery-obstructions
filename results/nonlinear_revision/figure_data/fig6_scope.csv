@@ -1,0 +1,12 @@
+case_id,label,empirical_alpha50_mps2
+front_idm_leader_d02,Front,4.5
+even_idm_leader_d02,Even,4.5
+middle_idm_leader_d02,Middle,1.5
+rear_idm_leader_d02,Rear,1.0
+even_idm_leader_cmd0,cmd 0,4.5
+even_idm_leader_d02,cmd 0.2,4.5
+even_idm_leader_cmd04,cmd 0.4,4.0
+even_idm_internal8_d02,internal,2.1
+even_ovm_leader_d02,OVM,1.0
+even_idm_leader_N20,N=20,4.0
+even_idm_leader_N80,N=80,4.5

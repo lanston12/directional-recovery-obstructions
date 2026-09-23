@@ -1,0 +1,57 @@
+{
+  "paired_effects": {
+    "delta_endpoint_gap_margin_minus_predictive_m": {
+      "median": -1.0961944080198691,
+      "mean": -1.1480870136839816,
+      "bootstrap_median_95_interval": [
+        -1.4828049379230492,
+        -0.7139599478306593
+      ],
+      "negative_count": 12,
+      "zero_count": 0,
+      "positive_count": 0,
+      "n_pairs": 12
+    },
+    "delta_window_gap_margin_minus_predictive_m": {
+      "median": -0.7176533660372115,
+      "mean": -0.7230851282755518,
+      "bootstrap_median_95_interval": [
+        -0.9902175226544614,
+        -0.4355734576667487
+      ],
+      "negative_count": 12,
+      "zero_count": 0,
+      "positive_count": 0,
+      "n_pairs": 12
+    },
+    "delta_normalized_loss_margin_minus_predictive": {
+      "median": 0.002175942321216714,
+      "mean": 0.0022689459419383638,
+      "bootstrap_median_95_interval": [
+        0.00207099204523896,
+        0.0023978378202138967
+      ],
+      "negative_count": 0,
+      "zero_count": 0,
+      "positive_count": 12,
+      "n_pairs": 12
+    }
+  },
+  "predictor": {
+    "decisions": 56544,
+    "empty_feasible_pool_count": 0,
+    "empty_feasible_pool_fraction": 0.0,
+    "old_screen_feasible_but_discrete_endpoint_infeasible_count": 0,
+    "median_abs_old_minus_exact_speed_mps": 0.0,
+    "q95_abs_old_minus_discrete_speed_mps": 0.07622665214970326,
+    "q95_abs_old_minus_discrete_gap_m": 0.208367653977664,
+    "diagnostic_subset_definition": "abs(selected command)>0.1 or 5<=time<=15 s",
+    "diagnostic_subset_decisions": 13741,
+    "diagnostic_subset_mean_abs_old_minus_exact_speed_mps": 0.023764650434267585,
+    "diagnostic_subset_max_abs_old_minus_exact_speed_mps": 0.20760035677114885,
+    "diagnostic_subset_mean_abs_old_minus_discrete_gap_m": 0.14779199860689088,
+    "diagnostic_subset_max_abs_old_minus_discrete_gap_m": 2.8190771980925895,
+    "reference_a0_u1_old_speed_increment_mps": 1.1610801109262454,
+    "reference_a0_u1_exact_speed_increment_mps": 0.8613516343131784
+  }
+}

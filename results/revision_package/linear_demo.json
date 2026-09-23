@@ -1,0 +1,4588 @@
+{
+  "provenance": {
+    "N_followers": 12,
+    "total_vehicles_including_leader": 13,
+    "h_s": 0.1,
+    "horizon_s": 60.0,
+    "lag_s": 0.3,
+    "delay_steps": 2,
+    "HDV_rule_ks_kv_kd": [
+      0.2,
+      0.25,
+      0.5
+    ],
+    "CAV_rule_ks_kv_kd": [
+      0.12,
+      0.8,
+      0.7
+    ],
+    "target_speed_mps": 20.0,
+    "target_gap_m": 20.0,
+    "safe_gap_m": 5.0,
+    "loss_limit_normalized": 0.03,
+    "layouts_one_based": {
+      "Front": [
+        1,
+        2
+      ],
+      "Distributed": [
+        3,
+        7
+      ],
+      "Middle": [
+        6,
+        7
+      ],
+      "Rear": [
+        11,
+        12
+      ]
+    },
+    "disturbance_family": "alpha*D*xi, xi in [-1,1]^4; +xi_j for five samples, then -xi_j for five samples in matching order; zero after 4 s",
+    "initial_history": "all deviations and delayed commands zero",
+    "scope": "new uncalibrated sampled-linear illustration; not original nonlinear data"
+  },
+  "cases": {
+    "Front": {
+      "radius": 2.6580205385183056,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.6580205385183056,
+        "vertex_radius": 2.6580205385183056,
+        "coefficient": 0.7524396335608775,
+        "slack": 2.0,
+        "sample": 43,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 6.751638133368425,
+          "vertex_radius": 6.751638133368425,
+          "coefficient": 2.2216830499054643,
+          "slack": 15.0,
+          "sample": 30,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 9.183125828023678,
+          "vertex_radius": 9.18312582802368,
+          "coefficient": 1.0889538254483575,
+          "slack": 10.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 18.366251656047357,
+          "vertex_radius": 18.36625165604736,
+          "coefficient": 1.0889538254483575,
+          "slack": 20.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.6580205385183056,
+          "vertex_radius": 2.6580205385183056,
+          "coefficient": 0.7524396335608775,
+          "slack": 2.0,
+          "sample": 43,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 5.980546211666187,
+          "vertex_radius": 5.980546211666187,
+          "coefficient": 0.7524396335608775,
+          "slack": 4.5,
+          "sample": 43,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 3.111783391634982,
+          "vertex_radius": 3.111783391634982,
+          "coefficient": 0.8033978222007474,
+          "slack": 2.5,
+          "sample": 39,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 6.223566783269964,
+          "vertex_radius": 6.223566783269964,
+          "coefficient": 0.8033978222007474,
+          "slack": 5.0,
+          "sample": 39,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 3.334574257556958,
+          "vertex_radius": 3.334574257556958,
+          "coefficient": 1.499441791907552,
+          "slack": 5.0,
+          "sample": 43,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 3.334574257556958,
+          "vertex_radius": 3.334574257556958,
+          "coefficient": 1.499441791907552,
+          "slack": 5.0,
+          "sample": 43,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 20.09137104224868,
+          "vertex_radius": 20.09137104224868,
+          "coefficient": 0.04977261123181553,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 20.09137104224868,
+          "vertex_radius": 20.09137104224868,
+          "coefficient": 0.04977261123181553,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.59740944935736,
+          "vertex_radius": 54.597409449357365,
+          "coefficient": 0.010989532398172462,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.59740944935736,
+          "vertex_radius": 54.597409449357365,
+          "coefficient": 0.010989532398172462,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.8669729972755,
+          "vertex_radius": 387.8669729972755,
+          "coefficient": 0.0007734610598105945,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.8669729972755,
+          "vertex_radius": 387.8669729972755,
+          "coefficient": 0.0007734610598105945,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 9.214109560485236,
+          "vertex_radius": 9.214109560485236,
+          "coefficient": 0.003255876197593219,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.6580205385183056,
+        4.1648983088304465,
+        7.187193684394673,
+        9.590876578795031,
+        11.868840413112112,
+        13.842840732647039,
+        15.472019719119059,
+        16.762559077745234,
+        17.782639993688562,
+        18.572527996296895,
+        18.93763306513072,
+        18.315024931920785
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.003255876197593219
+    },
+    "Distributed": {
+      "radius": 2.3771727487708594,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.3771727487708594,
+        "vertex_radius": 2.37717274877086,
+        "coefficient": 0.8413355743852102,
+        "slack": 2.0,
+        "sample": 23,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 6.574134994135555,
+          "vertex_radius": 6.574134994135555,
+          "coefficient": 2.281668997271994,
+          "slack": 15.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 6.973751465735687,
+          "vertex_radius": 6.973751465735687,
+          "coefficient": 1.4339484349468514,
+          "slack": 10.0,
+          "sample": 35,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 13.947502931471375,
+          "vertex_radius": 13.947502931471375,
+          "coefficient": 1.4339484349468514,
+          "slack": 20.0,
+          "sample": 35,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.3771727487708594,
+          "vertex_radius": 2.37717274877086,
+          "coefficient": 0.8413355743852102,
+          "slack": 2.0,
+          "sample": 23,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 5.348638684734434,
+          "vertex_radius": 5.348638684734434,
+          "coefficient": 0.8413355743852102,
+          "slack": 4.5,
+          "sample": 23,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 2.7745945271802026,
+          "vertex_radius": 2.7745945271802026,
+          "coefficient": 0.9010325564725774,
+          "slack": 2.5,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 5.549189054360405,
+          "vertex_radius": 5.549189054360405,
+          "coefficient": 0.9010325564725774,
+          "slack": 5.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 5.35365455016686,
+          "vertex_radius": 5.35365455016686,
+          "coefficient": 0.9339414699150065,
+          "slack": 5.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 5.35365455016686,
+          "vertex_radius": 5.35365455016686,
+          "coefficient": 0.9339414699150065,
+          "slack": 5.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 13.411917853771252,
+          "vertex_radius": 13.411917853771252,
+          "coefficient": 0.07456055210767738,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 7,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 13.411917853771252,
+          "vertex_radius": 13.411917853771252,
+          "coefficient": 0.07456055210767738,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 7,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.5974094493574,
+          "vertex_radius": 54.5974094493574,
+          "coefficient": 0.010989532398172453,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.5974094493574,
+          "vertex_radius": 54.5974094493574,
+          "coefficient": 0.010989532398172453,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.86697299727626,
+          "vertex_radius": 387.86697299727626,
+          "coefficient": 0.0007734610598105931,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.86697299727626,
+          "vertex_radius": 387.86697299727626,
+          "coefficient": 0.0007734610598105931,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 8.98000946373499,
+          "vertex_radius": 8.98000946373499,
+          "coefficient": 0.00334075371759378,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.3771727487708594,
+        3.3788233515310306,
+        5.697728190235363,
+        7.080020949060813,
+        8.28033722195361,
+        9.272849641817391,
+        10.590485988856765,
+        16.762559077745223,
+        17.78263999368855,
+        18.57252799629688,
+        18.93763306513068,
+        18.31502493192075
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.00334075371759378
+    },
+    "Middle": {
+      "radius": 2.3771727487708594,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.3771727487708594,
+        "vertex_radius": 2.37717274877086,
+        "coefficient": 0.8413355743852102,
+        "slack": 2.0,
+        "sample": 23,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 6.574134994135555,
+          "vertex_radius": 6.574134994135555,
+          "coefficient": 2.281668997271994,
+          "slack": 15.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 6.973751465735687,
+          "vertex_radius": 6.973751465735687,
+          "coefficient": 1.4339484349468514,
+          "slack": 10.0,
+          "sample": 35,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 13.947502931471375,
+          "vertex_radius": 13.947502931471375,
+          "coefficient": 1.4339484349468514,
+          "slack": 20.0,
+          "sample": 35,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.3771727487708594,
+          "vertex_radius": 2.37717274877086,
+          "coefficient": 0.8413355743852102,
+          "slack": 2.0,
+          "sample": 23,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 5.348638684734434,
+          "vertex_radius": 5.348638684734434,
+          "coefficient": 0.8413355743852102,
+          "slack": 4.5,
+          "sample": 23,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 2.7745945271802026,
+          "vertex_radius": 2.7745945271802026,
+          "coefficient": 0.9010325564725774,
+          "slack": 2.5,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 5.549189054360405,
+          "vertex_radius": 5.549189054360405,
+          "coefficient": 0.9010325564725774,
+          "slack": 5.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 5.35365455016686,
+          "vertex_radius": 5.35365455016686,
+          "coefficient": 0.9339414699150065,
+          "slack": 5.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 5.35365455016686,
+          "vertex_radius": 5.35365455016686,
+          "coefficient": 0.9339414699150065,
+          "slack": 5.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 13.411917853771236,
+          "vertex_radius": 13.411917853771236,
+          "coefficient": 0.07456055210767747,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 7,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 13.411917853771236,
+          "vertex_radius": 13.411917853771236,
+          "coefficient": 0.07456055210767747,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 7,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.59740944935729,
+          "vertex_radius": 54.59740944935729,
+          "coefficient": 0.010989532398172474,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.59740944935729,
+          "vertex_radius": 54.59740944935729,
+          "coefficient": 0.010989532398172474,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.86697299727604,
+          "vertex_radius": 387.86697299727604,
+          "coefficient": 0.0007734610598105936,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.86697299727604,
+          "vertex_radius": 387.86697299727604,
+          "coefficient": 0.0007734610598105936,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 8.456902824775762,
+          "vertex_radius": 8.456902824775762,
+          "coefficient": 0.0035473979802760074,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.3771727487708594,
+        3.3788233515310306,
+        4.229637633092805,
+        4.954406279122814,
+        5.13665935885863,
+        6.666255783847657,
+        10.590485988856763,
+        16.762559077745212,
+        17.782639993688548,
+        18.57252799629688,
+        18.937633065130676,
+        18.315024931920753
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.0035473979802760074
+    },
+    "Rear": {
+      "radius": 2.3771727487708594,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.3771727487708594,
+        "vertex_radius": 2.37717274877086,
+        "coefficient": 0.8413355743852102,
+        "slack": 2.0,
+        "sample": 23,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 5.811845166077359,
+          "vertex_radius": 5.811845166077359,
+          "coefficient": 2.5809359284986053,
+          "slack": 15.0,
+          "sample": 207,
+          "vehicle": 11,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 6.973751465735687,
+          "vertex_radius": 6.973751465735687,
+          "coefficient": 1.4339484349468514,
+          "slack": 10.0,
+          "sample": 35,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 13.947502931471375,
+          "vertex_radius": 13.947502931471375,
+          "coefficient": 1.4339484349468514,
+          "slack": 20.0,
+          "sample": 35,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.3771727487708594,
+          "vertex_radius": 2.37717274877086,
+          "coefficient": 0.8413355743852102,
+          "slack": 2.0,
+          "sample": 23,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 5.348638684734434,
+          "vertex_radius": 5.348638684734434,
+          "coefficient": 0.8413355743852102,
+          "slack": 4.5,
+          "sample": 23,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 2.7745945271802026,
+          "vertex_radius": 2.7745945271802026,
+          "coefficient": 0.9010325564725774,
+          "slack": 2.5,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 5.549189054360405,
+          "vertex_radius": 5.549189054360405,
+          "coefficient": 0.9010325564725774,
+          "slack": 5.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 5.35365455016686,
+          "vertex_radius": 5.35365455016686,
+          "coefficient": 0.9339414699150065,
+          "slack": 5.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 5.35365455016686,
+          "vertex_radius": 5.35365455016686,
+          "coefficient": 0.9339414699150065,
+          "slack": 5.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 9.00125329480214,
+          "vertex_radius": 9.001253294802142,
+          "coefficient": 0.11109564049013702,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 9.00125329480214,
+          "vertex_radius": 9.001253294802142,
+          "coefficient": 0.11109564049013702,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.597409449357365,
+          "vertex_radius": 54.597409449357365,
+          "coefficient": 0.01098953239817246,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.597409449357365,
+          "vertex_radius": 54.597409449357365,
+          "coefficient": 0.01098953239817246,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.8669729972759,
+          "vertex_radius": 387.8669729972759,
+          "coefficient": 0.0007734610598105938,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.8669729972759,
+          "vertex_radius": 387.8669729972759,
+          "coefficient": 0.0007734610598105938,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 6.94873359964799,
+          "vertex_radius": 6.94873359964799,
+          "coefficient": 0.004317333449294954,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.3771727487708594,
+        3.3788233515310306,
+        4.229637633092805,
+        4.954406279122814,
+        5.13665935885863,
+        5.171084284340296,
+        5.150483436613698,
+        5.093543506636249,
+        5.015193212640344,
+        4.921576682212574,
+        5.811845166077359,
+        9.00125329480214
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.004317333449294954
+    }
+  },
+  "delay_scan": [
+    {
+      "layout": "Front",
+      "delay_s": 0.0,
+      "radius": 3.492084818385276,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 3.492084818385276,
+        "vertex_radius": 3.492084818385276,
+        "coefficient": 0.5727237750556101,
+        "slack": 2.0,
+        "sample": 21,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 6.847622397220083,
+          "vertex_radius": 6.847622397220084,
+          "coefficient": 2.190541348496308,
+          "slack": 15.0,
+          "sample": 31,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 10.452209376017167,
+          "vertex_radius": 10.452209376017166,
+          "coefficient": 0.9567355226298114,
+          "slack": 10.0,
+          "sample": 28,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 20.904418752034335,
+          "vertex_radius": 20.90441875203433,
+          "coefficient": 0.9567355226298114,
+          "slack": 20.0,
+          "sample": 28,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 3.492084818385276,
+          "vertex_radius": 3.492084818385276,
+          "coefficient": 0.5727237750556101,
+          "slack": 2.0,
+          "sample": 21,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 7.857190841366871,
+          "vertex_radius": 7.857190841366871,
+          "coefficient": 0.5727237750556101,
+          "slack": 4.5,
+          "sample": 21,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 4.329415554507198,
+          "vertex_radius": 4.329415554507198,
+          "coefficient": 0.5774451467005379,
+          "slack": 2.5,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 8.658831109014397,
+          "vertex_radius": 8.658831109014397,
+          "coefficient": 0.5774451467005379,
+          "slack": 5.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 4.478781516114114,
+          "vertex_radius": 4.478781516114114,
+          "coefficient": 1.116375063621792,
+          "slack": 5.0,
+          "sample": 41,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 4.478781516114114,
+          "vertex_radius": 4.478781516114114,
+          "coefficient": 1.116375063621792,
+          "slack": 5.0,
+          "sample": 41,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 20.13177803283067,
+          "vertex_radius": 20.131778032830674,
+          "coefficient": 0.0496727113903805,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 20.13177803283067,
+          "vertex_radius": 20.131778032830674,
+          "coefficient": 0.0496727113903805,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.74677948413334,
+          "vertex_radius": 54.74677948413334,
+          "coefficient": 0.010959548774442366,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.74677948413334,
+          "vertex_radius": 54.74677948413334,
+          "coefficient": 0.010959548774442366,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 386.2716532936562,
+          "vertex_radius": 386.2716532936562,
+          "coefficient": 0.0007766554895808787,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 386.2716532936562,
+          "vertex_radius": 386.2716532936562,
+          "coefficient": 0.0007766554895808787,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 9.218733218638288,
+          "vertex_radius": 9.218733218638288,
+          "coefficient": 0.003254243212000807,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        3.492084818385276,
+        6.73125433645986,
+        10.487796801471386,
+        14.773285102642818,
+        18.903053662594274,
+        22.51901279313883,
+        25.49462727447683,
+        27.9099552303185,
+        29.875591637584296,
+        31.501797100749084,
+        31.29161531455343,
+        31.044874017414173
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.003254243212000807
+    },
+    {
+      "layout": "Rear",
+      "delay_s": 0.0,
+      "radius": 2.6421479681010167,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.6421479681010167,
+        "vertex_radius": 2.6421479681010163,
+        "coefficient": 0.756959876640616,
+        "slack": 2.0,
+        "sample": 21,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 7.032383603944699,
+          "vertex_radius": 7.032383603944699,
+          "coefficient": 2.1329894449423947,
+          "slack": 15.0,
+          "sample": 211,
+          "vehicle": 11,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 7.733291870436899,
+          "vertex_radius": 7.733291870436899,
+          "coefficient": 1.293110381392477,
+          "slack": 10.0,
+          "sample": 33,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 15.466583740873798,
+          "vertex_radius": 15.466583740873798,
+          "coefficient": 1.293110381392477,
+          "slack": 20.0,
+          "sample": 33,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.6421479681010167,
+          "vertex_radius": 2.6421479681010163,
+          "coefficient": 0.756959876640616,
+          "slack": 2.0,
+          "sample": 21,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 5.944832928227288,
+          "vertex_radius": 5.944832928227287,
+          "coefficient": 0.756959876640616,
+          "slack": 4.5,
+          "sample": 21,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 3.082068111849245,
+          "vertex_radius": 3.082068111849245,
+          "coefficient": 0.8111436572049009,
+          "slack": 2.5,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 6.16413622369849,
+          "vertex_radius": 6.16413622369849,
+          "coefficient": 0.8111436572049009,
+          "slack": 5.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 6.308608694636524,
+          "vertex_radius": 6.308608694636523,
+          "coefficient": 0.7925677819026751,
+          "slack": 5.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 6.308608694636524,
+          "vertex_radius": 6.308608694636523,
+          "coefficient": 0.7925677819026751,
+          "slack": 5.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 9.037827757667491,
+          "vertex_radius": 9.037827757667491,
+          "coefficient": 0.11064605642120391,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 9.037827757667491,
+          "vertex_radius": 9.037827757667491,
+          "coefficient": 0.11064605642120391,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.74677948413331,
+          "vertex_radius": 54.74677948413331,
+          "coefficient": 0.01095954877444237,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.74677948413331,
+          "vertex_radius": 54.74677948413331,
+          "coefficient": 0.01095954877444237,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 386.2716532936563,
+          "vertex_radius": 386.2716532936563,
+          "coefficient": 0.0007766554895808785,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 386.2716532936563,
+          "vertex_radius": 386.2716532936563,
+          "coefficient": 0.0007766554895808785,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 7.487957412542223,
+          "vertex_radius": 7.487957412542223,
+          "coefficient": 0.004006433042708072,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.6421479681010167,
+        4.194795842001437,
+        5.706275321994362,
+        7.115118854899168,
+        8.355027368679728,
+        9.239601933610134,
+        9.422014156897768,
+        9.526752418669512,
+        9.577284371989993,
+        9.587175556085537,
+        7.032383603944699,
+        9.037827757667491
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.004006433042708072
+    },
+    {
+      "layout": "Front",
+      "delay_s": 0.1,
+      "radius": 3.1870099788595327,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 3.1870099788595327,
+        "vertex_radius": 3.1870099788595327,
+        "coefficient": 0.6275474545943208,
+        "slack": 2.0,
+        "sample": 30,
+        "vehicle": 1,
+        "witness": [
+          -1.0,
+          -1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 6.822627694203973,
+          "vertex_radius": 6.822627694203973,
+          "coefficient": 2.1985663988001205,
+          "slack": 15.0,
+          "sample": 30,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 9.84039375248653,
+          "vertex_radius": 9.84039375248653,
+          "coefficient": 1.0162194980737573,
+          "slack": 10.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 19.68078750497306,
+          "vertex_radius": 19.68078750497306,
+          "coefficient": 1.0162194980737573,
+          "slack": 20.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 3.1870099788595327,
+          "vertex_radius": 3.1870099788595327,
+          "coefficient": 0.6275474545943208,
+          "slack": 2.0,
+          "sample": 30,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 7.1707724524339485,
+          "vertex_radius": 7.1707724524339485,
+          "coefficient": 0.6275474545943208,
+          "slack": 4.5,
+          "sample": 30,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 3.8364708489538297,
+          "vertex_radius": 3.8364708489538297,
+          "coefficient": 0.6516405567584925,
+          "slack": 2.5,
+          "sample": 25,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 7.6729416979076595,
+          "vertex_radius": 7.6729416979076595,
+          "coefficient": 0.6516405567584925,
+          "slack": 5.0,
+          "sample": 25,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 3.8923196737695696,
+          "vertex_radius": 3.8923196737695687,
+          "coefficient": 1.2845810259869233,
+          "slack": 5.0,
+          "sample": 42,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 3.8923196737695696,
+          "vertex_radius": 3.8923196737695687,
+          "coefficient": 1.2845810259869233,
+          "slack": 5.0,
+          "sample": 42,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 20.111513422802886,
+          "vertex_radius": 20.111513422802886,
+          "coefficient": 0.04972276222962801,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 20.111513422802886,
+          "vertex_radius": 20.111513422802886,
+          "coefficient": 0.04972276222962801,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.69181598140184,
+          "vertex_radius": 54.69181598140184,
+          "coefficient": 0.010970562765808184,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.69181598140184,
+          "vertex_radius": 54.69181598140184,
+          "coefficient": 0.010970562765808184,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 386.8733868008287,
+          "vertex_radius": 386.8733868008287,
+          "coefficient": 0.0007754474984200629,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 386.8733868008287,
+          "vertex_radius": 386.8733868008287,
+          "coefficient": 0.0007754474984200629,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 9.21924219332037,
+          "vertex_radius": 9.21924219332037,
+          "coefficient": 0.0032540635521795852,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        3.1870099788595327,
+        5.805665268013745,
+        8.779211050161383,
+        12.073382792325477,
+        15.241137902997849,
+        18.032272672135562,
+        20.34317231469476,
+        22.210910428945645,
+        23.724196959123578,
+        24.934479673780018,
+        25.9289656450103,
+        26.736696754506077
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.0032540635521795852
+    },
+    {
+      "layout": "Rear",
+      "delay_s": 0.1,
+      "radius": 2.508095506176795,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.508095506176795,
+        "vertex_radius": 2.508095506176795,
+        "coefficient": 0.797417799710782,
+        "slack": 2.0,
+        "sample": 22,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 6.491047666747557,
+          "vertex_radius": 6.491047666747557,
+          "coefficient": 2.310875034371145,
+          "slack": 15.0,
+          "sample": 209,
+          "vehicle": 11,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 7.355741191805173,
+          "vertex_radius": 7.355741191805174,
+          "coefficient": 1.359482306302555,
+          "slack": 10.0,
+          "sample": 34,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 14.711482383610345,
+          "vertex_radius": 14.711482383610347,
+          "coefficient": 1.359482306302555,
+          "slack": 20.0,
+          "sample": 34,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.508095506176795,
+          "vertex_radius": 2.508095506176795,
+          "coefficient": 0.797417799710782,
+          "slack": 2.0,
+          "sample": 22,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 5.6432148888977895,
+          "vertex_radius": 5.6432148888977895,
+          "coefficient": 0.797417799710782,
+          "slack": 4.5,
+          "sample": 22,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 2.928298360152395,
+          "vertex_radius": 2.9282983601523944,
+          "coefficient": 0.8537381415840067,
+          "slack": 2.5,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 5.85659672030479,
+          "vertex_radius": 5.856596720304789,
+          "coefficient": 0.8537381415840067,
+          "slack": 5.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 5.8072933878821855,
+          "vertex_radius": 5.8072933878821855,
+          "coefficient": 0.8609862918986101,
+          "slack": 5.0,
+          "sample": 31,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 5.8072933878821855,
+          "vertex_radius": 5.8072933878821855,
+          "coefficient": 0.8609862918986101,
+          "slack": 5.0,
+          "sample": 31,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 9.01864073848913,
+          "vertex_radius": 9.01864073848913,
+          "coefficient": 0.11088145420099386,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 9.01864073848913,
+          "vertex_radius": 9.01864073848913,
+          "coefficient": 0.11088145420099386,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.691815981401824,
+          "vertex_radius": 54.691815981401824,
+          "coefficient": 0.010970562765808187,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.691815981401824,
+          "vertex_radius": 54.691815981401824,
+          "coefficient": 0.010970562765808187,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 386.87338680083,
+          "vertex_radius": 386.87338680083,
+          "coefficient": 0.0007754474984200603,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 386.87338680083,
+          "vertex_radius": 386.87338680083,
+          "coefficient": 0.0007754474984200603,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 7.283737450550618,
+          "vertex_radius": 7.283737450550618,
+          "coefficient": 0.004118764604527602,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.508095506176795,
+        3.772525277254881,
+        4.939521187369467,
+        5.985933365349044,
+        6.89742983313131,
+        7.171273290644568,
+        7.246495041938829,
+        7.263493526728745,
+        7.242100108877359,
+        7.192147633069897,
+        6.491047666747557,
+        9.01864073848913
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.004118764604527602
+    },
+    {
+      "layout": "Front",
+      "delay_s": 0.2,
+      "radius": 2.6580205385183056,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.6580205385183056,
+        "vertex_radius": 2.6580205385183056,
+        "coefficient": 0.7524396335608775,
+        "slack": 2.0,
+        "sample": 43,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 6.751638133368425,
+          "vertex_radius": 6.751638133368425,
+          "coefficient": 2.2216830499054643,
+          "slack": 15.0,
+          "sample": 30,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 9.183125828023678,
+          "vertex_radius": 9.18312582802368,
+          "coefficient": 1.0889538254483575,
+          "slack": 10.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 18.366251656047357,
+          "vertex_radius": 18.36625165604736,
+          "coefficient": 1.0889538254483575,
+          "slack": 20.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.6580205385183056,
+          "vertex_radius": 2.6580205385183056,
+          "coefficient": 0.7524396335608775,
+          "slack": 2.0,
+          "sample": 43,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 5.980546211666187,
+          "vertex_radius": 5.980546211666187,
+          "coefficient": 0.7524396335608775,
+          "slack": 4.5,
+          "sample": 43,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 3.111783391634982,
+          "vertex_radius": 3.111783391634982,
+          "coefficient": 0.8033978222007474,
+          "slack": 2.5,
+          "sample": 39,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 6.223566783269964,
+          "vertex_radius": 6.223566783269964,
+          "coefficient": 0.8033978222007474,
+          "slack": 5.0,
+          "sample": 39,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 3.334574257556958,
+          "vertex_radius": 3.334574257556958,
+          "coefficient": 1.499441791907552,
+          "slack": 5.0,
+          "sample": 43,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 3.334574257556958,
+          "vertex_radius": 3.334574257556958,
+          "coefficient": 1.499441791907552,
+          "slack": 5.0,
+          "sample": 43,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 20.09137104224868,
+          "vertex_radius": 20.09137104224868,
+          "coefficient": 0.04977261123181553,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 20.09137104224868,
+          "vertex_radius": 20.09137104224868,
+          "coefficient": 0.04977261123181553,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.59740944935736,
+          "vertex_radius": 54.597409449357365,
+          "coefficient": 0.010989532398172462,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.59740944935736,
+          "vertex_radius": 54.597409449357365,
+          "coefficient": 0.010989532398172462,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.8669729972755,
+          "vertex_radius": 387.8669729972755,
+          "coefficient": 0.0007734610598105945,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.8669729972755,
+          "vertex_radius": 387.8669729972755,
+          "coefficient": 0.0007734610598105945,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 9.214109560485236,
+          "vertex_radius": 9.214109560485236,
+          "coefficient": 0.003255876197593219,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.6580205385183056,
+        4.1648983088304465,
+        7.187193684394673,
+        9.590876578795031,
+        11.868840413112112,
+        13.842840732647039,
+        15.472019719119059,
+        16.762559077745234,
+        17.782639993688562,
+        18.572527996296895,
+        18.93763306513072,
+        18.315024931920785
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.003255876197593219
+    },
+    {
+      "layout": "Rear",
+      "delay_s": 0.2,
+      "radius": 2.3771727487708594,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.3771727487708594,
+        "vertex_radius": 2.37717274877086,
+        "coefficient": 0.8413355743852102,
+        "slack": 2.0,
+        "sample": 23,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 5.811845166077359,
+          "vertex_radius": 5.811845166077359,
+          "coefficient": 2.5809359284986053,
+          "slack": 15.0,
+          "sample": 207,
+          "vehicle": 11,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 6.973751465735687,
+          "vertex_radius": 6.973751465735687,
+          "coefficient": 1.4339484349468514,
+          "slack": 10.0,
+          "sample": 35,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 13.947502931471375,
+          "vertex_radius": 13.947502931471375,
+          "coefficient": 1.4339484349468514,
+          "slack": 20.0,
+          "sample": 35,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.3771727487708594,
+          "vertex_radius": 2.37717274877086,
+          "coefficient": 0.8413355743852102,
+          "slack": 2.0,
+          "sample": 23,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 5.348638684734434,
+          "vertex_radius": 5.348638684734434,
+          "coefficient": 0.8413355743852102,
+          "slack": 4.5,
+          "sample": 23,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 2.7745945271802026,
+          "vertex_radius": 2.7745945271802026,
+          "coefficient": 0.9010325564725774,
+          "slack": 2.5,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 5.549189054360405,
+          "vertex_radius": 5.549189054360405,
+          "coefficient": 0.9010325564725774,
+          "slack": 5.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 5.35365455016686,
+          "vertex_radius": 5.35365455016686,
+          "coefficient": 0.9339414699150065,
+          "slack": 5.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 5.35365455016686,
+          "vertex_radius": 5.35365455016686,
+          "coefficient": 0.9339414699150065,
+          "slack": 5.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 9.00125329480214,
+          "vertex_radius": 9.001253294802142,
+          "coefficient": 0.11109564049013702,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 9.00125329480214,
+          "vertex_radius": 9.001253294802142,
+          "coefficient": 0.11109564049013702,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.597409449357365,
+          "vertex_radius": 54.597409449357365,
+          "coefficient": 0.01098953239817246,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.597409449357365,
+          "vertex_radius": 54.597409449357365,
+          "coefficient": 0.01098953239817246,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.8669729972759,
+          "vertex_radius": 387.8669729972759,
+          "coefficient": 0.0007734610598105938,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.8669729972759,
+          "vertex_radius": 387.8669729972759,
+          "coefficient": 0.0007734610598105938,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 6.94873359964799,
+          "vertex_radius": 6.94873359964799,
+          "coefficient": 0.004317333449294954,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.3771727487708594,
+        3.3788233515310306,
+        4.229637633092805,
+        4.954406279122814,
+        5.13665935885863,
+        5.171084284340296,
+        5.150483436613698,
+        5.093543506636249,
+        5.015193212640344,
+        4.921576682212574,
+        5.811845166077359,
+        9.00125329480214
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.004317333449294954
+    },
+    {
+      "layout": "Front",
+      "delay_s": 0.30000000000000004,
+      "radius": 2.1325639789776902,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.1325639789776902,
+        "vertex_radius": 2.1325639789776902,
+        "coefficient": 0.9378382171487119,
+        "slack": 2.0,
+        "sample": 44,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 6.6237067248675485,
+          "vertex_radius": 6.623706724867548,
+          "coefficient": 2.264593017635446,
+          "slack": 15.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 8.501828208171041,
+          "vertex_radius": 8.501828208171041,
+          "coefficient": 1.1762176034548755,
+          "slack": 10.0,
+          "sample": 30,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 17.003656416342082,
+          "vertex_radius": 17.003656416342082,
+          "coefficient": 1.1762176034548755,
+          "slack": 20.0,
+          "sample": 30,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.1325639789776902,
+          "vertex_radius": 2.1325639789776902,
+          "coefficient": 0.9378382171487119,
+          "slack": 2.0,
+          "sample": 44,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 4.798268952699803,
+          "vertex_radius": 4.798268952699803,
+          "coefficient": 0.9378382171487119,
+          "slack": 4.5,
+          "sample": 44,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 2.4656020127379414,
+          "vertex_radius": 2.4656020127379414,
+          "coefficient": 1.0139511515177022,
+          "slack": 2.5,
+          "sample": 39,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 4.931204025475883,
+          "vertex_radius": 4.931204025475883,
+          "coefficient": 1.0139511515177022,
+          "slack": 5.0,
+          "sample": 39,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 2.816428831716638,
+          "vertex_radius": 2.816428831716638,
+          "coefficient": 1.7752978323803257,
+          "slack": 5.0,
+          "sample": 44,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 2.816428831716638,
+          "vertex_radius": 2.816428831716638,
+          "coefficient": 1.7752978323803257,
+          "slack": 5.0,
+          "sample": 44,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 20.071350164621904,
+          "vertex_radius": 20.0713501646219,
+          "coefficient": 0.04982225868206,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 20.071350164621904,
+          "vertex_radius": 20.0713501646219,
+          "coefficient": 0.04982225868206,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.47901683915313,
+          "vertex_radius": 54.47901683915314,
+          "coefficient": 0.011013414610096089,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.47901683915313,
+          "vertex_radius": 54.47901683915314,
+          "coefficient": 0.011013414610096089,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.3730019346736,
+          "vertex_radius": 387.3730019346736,
+          "coefficient": 0.0007744473633983193,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.3730019346736,
+          "vertex_radius": 387.3730019346736,
+          "coefficient": 0.0007744473633983193,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 9.038386824416023,
+          "vertex_radius": 9.038386824416023,
+          "coefficient": 0.003319176373261533,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.1325639789776902,
+        2.8912509854444415,
+        5.154399568715713,
+        7.460524582736506,
+        8.961411280404759,
+        10.223734823936846,
+        11.204595810546138,
+        11.599398192252483,
+        11.276431020556725,
+        10.86984174737987,
+        10.426651520252866,
+        9.968948197404943
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.003319176373261533
+    },
+    {
+      "layout": "Rear",
+      "delay_s": 0.30000000000000004,
+      "radius": 2.252705805148331,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 2.252705805148331,
+        "vertex_radius": 2.2527058051483313,
+        "coefficient": 0.8878212127962749,
+        "slack": 2.0,
+        "sample": 24,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 4.948423396956594,
+          "vertex_radius": 4.948423396956594,
+          "coefficient": 3.031268506495499,
+          "slack": 15.0,
+          "sample": 207,
+          "vehicle": 11,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 6.595796899192447,
+          "vertex_radius": 6.595796899192448,
+          "coefficient": 1.5161170291984498,
+          "slack": 10.0,
+          "sample": 36,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 13.191593798384893,
+          "vertex_radius": 13.191593798384895,
+          "coefficient": 1.5161170291984498,
+          "slack": 20.0,
+          "sample": 36,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 2.252705805148331,
+          "vertex_radius": 2.2527058051483313,
+          "coefficient": 0.8878212127962749,
+          "slack": 2.0,
+          "sample": 24,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 5.068588061583744,
+          "vertex_radius": 5.068588061583745,
+          "coefficient": 0.8878212127962749,
+          "slack": 4.5,
+          "sample": 24,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 2.6243210593196635,
+          "vertex_radius": 2.6243210593196635,
+          "coefficient": 0.9526273437931055,
+          "slack": 2.5,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 5.248642118639327,
+          "vertex_radius": 5.248642118639327,
+          "coefficient": 0.9526273437931055,
+          "slack": 5.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 4.95897521004376,
+          "vertex_radius": 4.95897521004376,
+          "coefficient": 1.008272836265273,
+          "slack": 5.0,
+          "sample": 34,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 4.95897521004376,
+          "vertex_radius": 4.95897521004376,
+          "coefficient": 1.008272836265273,
+          "slack": 5.0,
+          "sample": 34,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 8.983602121044887,
+          "vertex_radius": 8.983602121044887,
+          "coefficient": 0.11131392358276988,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 8.983602121044887,
+          "vertex_radius": 8.983602121044887,
+          "coefficient": 0.11131392358276988,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.479016839152976,
+          "vertex_radius": 54.479016839152976,
+          "coefficient": 0.01101341461009612,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.479016839152976,
+          "vertex_radius": 54.479016839152976,
+          "coefficient": 0.01101341461009612,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.37300193467286,
+          "vertex_radius": 387.37300193467286,
+          "coefficient": 0.0007744473633983207,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.37300193467286,
+          "vertex_radius": 387.37300193467286,
+          "coefficient": 0.0007744473633983207,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 6.329879385667387,
+          "vertex_radius": 6.329879385667387,
+          "coefficient": 0.004739426799810494,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.252705805148331,
+        3.0247103256619146,
+        3.4821893698523083,
+        3.5242382945850395,
+        3.490322213325303,
+        3.415796810010835,
+        3.317411715161799,
+        3.207538648182745,
+        3.093384226120358,
+        2.9766132421584337,
+        4.948423396956594,
+        7.772271279094535
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.004739426799810494
+    },
+    {
+      "layout": "Front",
+      "delay_s": 0.4,
+      "radius": 1.7312464892475623,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 1.7312464892475623,
+        "vertex_radius": 1.7312464892475627,
+        "coefficient": 1.1552369997118341,
+        "slack": 2.0,
+        "sample": 46,
+        "vehicle": 1,
+        "witness": [
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 6.447527121865855,
+          "vertex_radius": 6.447527121865853,
+          "coefficient": 2.326473346522215,
+          "slack": 15.0,
+          "sample": 29,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 7.818722597226621,
+          "vertex_radius": 7.818722597226621,
+          "coefficient": 1.2789813010564026,
+          "slack": 10.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 15.637445194453242,
+          "vertex_radius": 15.637445194453242,
+          "coefficient": 1.2789813010564026,
+          "slack": 20.0,
+          "sample": 32,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 1.7312464892475623,
+          "vertex_radius": 1.7312464892475627,
+          "coefficient": 1.1552369997118341,
+          "slack": 2.0,
+          "sample": 46,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 3.895304600807015,
+          "vertex_radius": 3.895304600807016,
+          "coefficient": 1.1552369997118341,
+          "slack": 4.5,
+          "sample": 46,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 1.9683755248433048,
+          "vertex_radius": 1.9683755248433048,
+          "coefficient": 1.2700828517967961,
+          "slack": 2.5,
+          "sample": 40,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 3.9367510496866096,
+          "vertex_radius": 3.9367510496866096,
+          "coefficient": 1.2700828517967961,
+          "slack": 5.0,
+          "sample": 40,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 2.428216383221281,
+          "vertex_radius": 2.428216383221281,
+          "coefficient": 2.059124563424196,
+          "slack": 5.0,
+          "sample": 42,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 2.428216383221281,
+          "vertex_radius": 2.428216383221281,
+          "coefficient": 2.059124563424196,
+          "slack": 5.0,
+          "sample": 42,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 20.051454770089222,
+          "vertex_radius": 20.051454770089222,
+          "coefficient": 0.04987169317468681,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 20.051454770089222,
+          "vertex_radius": 20.051454770089222,
+          "coefficient": 0.04987169317468681,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 2,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.37192833938477,
+          "vertex_radius": 54.37192833938477,
+          "coefficient": 0.01103510613518897,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.37192833938477,
+          "vertex_radius": 54.37192833938477,
+          "coefficient": 0.01103510613518897,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.0438014352603,
+          "vertex_radius": 387.0438014352603,
+          "coefficient": 0.000775106070391829,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.0438014352603,
+          "vertex_radius": 387.0438014352603,
+          "coefficient": 0.000775106070391829,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 8.228545159886243,
+          "vertex_radius": 8.228545159886243,
+          "coefficient": 0.003645844972237442,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        1.7312464892475623,
+        1.981248663321248,
+        3.18858690360683,
+        4.37713945865373,
+        5.310085604287409,
+        5.792820819660348,
+        5.880340600142807,
+        5.7316164379292,
+        5.470108260641131,
+        5.165066920406679,
+        4.848689002840184,
+        4.539868292549744
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.003645844972237442
+    },
+    {
+      "layout": "Rear",
+      "delay_s": 0.4,
+      "radius": 1.5901246729173015,
+      "limiting": {
+        "constraint": "acceleration_upper",
+        "radius": 1.5901246729173015,
+        "vertex_radius": 1.5901246729173015,
+        "coefficient": 1.2577630132175273,
+        "slack": 2.0,
+        "sample": 219,
+        "vehicle": 10,
+        "witness": [
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0
+        ]
+      },
+      "rows": [
+        {
+          "constraint": "gap_lower",
+          "radius": 3.9170345792199353,
+          "vertex_radius": 3.9170345792199357,
+          "coefficient": 3.8294275163093405,
+          "slack": 15.0,
+          "sample": 209,
+          "vehicle": 11,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "speed_upper",
+          "radius": 5.069332866417673,
+          "vertex_radius": 5.069332866417673,
+          "coefficient": 1.972646157494618,
+          "slack": 10.0,
+          "sample": 193,
+          "vehicle": 10,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "speed_lower",
+          "radius": 10.138665732835346,
+          "vertex_radius": 10.138665732835346,
+          "coefficient": 1.972646157494618,
+          "slack": 20.0,
+          "sample": 193,
+          "vehicle": 10,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_upper",
+          "radius": 1.5901246729173015,
+          "vertex_radius": 1.5901246729173015,
+          "coefficient": 1.2577630132175273,
+          "slack": 2.0,
+          "sample": 219,
+          "vehicle": 10,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "acceleration_lower",
+          "radius": 3.577780514063928,
+          "vertex_radius": 3.577780514063928,
+          "coefficient": 1.2577630132175273,
+          "slack": 4.5,
+          "sample": 219,
+          "vehicle": 10,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "command_upper",
+          "radius": 1.9622278096271084,
+          "vertex_radius": 1.9622278096271084,
+          "coefficient": 1.2740620572873682,
+          "slack": 2.5,
+          "sample": 212,
+          "vehicle": 10,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "command_lower",
+          "radius": 3.924455619254217,
+          "vertex_radius": 3.924455619254217,
+          "coefficient": 1.2740620572873682,
+          "slack": 5.0,
+          "sample": 212,
+          "vehicle": 10,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "jerk_upper",
+          "radius": 4.618340579399252,
+          "vertex_radius": 4.618340579399252,
+          "coefficient": 1.0826399469764514,
+          "slack": 5.0,
+          "sample": 36,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "jerk_lower",
+          "radius": 4.618340579399252,
+          "vertex_radius": 4.618340579399252,
+          "coefficient": 1.0826399469764514,
+          "slack": 5.0,
+          "sample": 36,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_upper",
+          "radius": 8.966020923925411,
+          "vertex_radius": 8.966020923925411,
+          "coefficient": 0.111532195662353,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_gap_lower",
+          "radius": 8.966020923925411,
+          "vertex_radius": 8.966020923925411,
+          "coefficient": 0.111532195662353,
+          "slack": 1.0,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_upper",
+          "radius": 54.37192833938469,
+          "vertex_radius": 54.37192833938469,
+          "coefficient": 0.011035106135188988,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "terminal_speed_lower",
+          "radius": 54.37192833938469,
+          "vertex_radius": 54.37192833938469,
+          "coefficient": 0.011035106135188988,
+          "slack": 0.6,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_upper",
+          "radius": 387.04380143525213,
+          "vertex_radius": 387.04380143525213,
+          "coefficient": 0.0007751060703918455,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "terminal_acceleration_lower",
+          "radius": 387.04380143525213,
+          "vertex_radius": 387.04380143525213,
+          "coefficient": 0.0007751060703918455,
+          "slack": 0.3,
+          "sample": 600,
+          "vehicle": 12,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_upper",
+          "radius": 5.0,
+          "vertex_radius": 5.0,
+          "coefficient": 2.0,
+          "slack": 10.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "constraint": "leader_speed_lower",
+          "radius": 10.0,
+          "vertex_radius": 10.0,
+          "coefficient": 2.0,
+          "slack": 20.0,
+          "sample": 20,
+          "vehicle": 1,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "normalized_loss",
+          "radius": 5.133462442156165,
+          "vertex_radius": 5.133462442156165,
+          "coefficient": 0.005844008861083505,
+          "slack": 0.03,
+          "sample": null,
+          "vehicle": null,
+          "witness": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "constraint": "leader_amplitude_domain",
+          "radius": 4.5,
+          "vertex_radius": 4.5,
+          "coefficient": 1.0,
+          "slack": 4.5,
+          "sample": null,
+          "vehicle": 0,
+          "witness": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "local_radius": [
+        2.1386916771797995,
+        2.5524594884376137,
+        2.4967557607745383,
+        2.376754035008943,
+        2.2359997916440766,
+        2.0943271373120504,
+        1.9566186186013448,
+        1.8265021936158603,
+        1.7049591312644365,
+        1.5901246729173015,
+        2.6851033910788917,
+        4.539868292549741
+      ],
+      "support_vertex_error": 4.440892098500626e-16,
+      "number_of_affine_rows": 66072,
+      "unit_loss_maximum": 0.005844008861083505
+    }
+  ],
+  "checks": {
+    "maximum_tail_response_difference": 2.7755575615628914e-16,
+    "maximum_uncontrolled_prefix_difference": 0.0,
+    "all_16_vertices_verified_per_case": true,
+    "near_boundary_099_pass_and_101_failure_verified": true
+  },
+  "limitations": [
+    "No original nonlinear simulations were rerun.",
+    "No parameter-uncertainty or continuous-time certificate is asserted.",
+    "No general intervention-performance superiority is tested."
+  ]
+}

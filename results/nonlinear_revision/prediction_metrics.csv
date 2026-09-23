@@ -1,0 +1,5 @@
+bottleneck_constraint_hit_fraction_failed_probe,bottleneck_vehicle_hit_fraction_failed_probe,coefficients,development_records,failed_probe_records,false_recoverable_fraction,predictor,split_rule,test_MAE_mps2,test_RMSE_mps2,test_records
+nan,nan,"[4.08347638779108, -2.1253741524117986]",36,0,0.9722222222222222,small_pulse_gain,configuration-disjoint; all seeds within a case remain in one split,1.4962275165795873,1.7441983711140605,36
+nan,nan,"[1.547131147540984, 1.8565573770491806]",36,0,0.8333333333333334,average_headway,configuration-disjoint; all seeds within a case remain in one split,2.2680555555555566,2.446383385053673,36
+nan,nan,"[4.453333333333334, -0.3700000000000001]",36,0,0.3055555555555556,distance_to_control,configuration-disjoint; all seeds within a case remain in one split,1.302314814814815,1.5930476847621122,36
+nan,nan,"[-167.3410340844096, 26.363306928993417, -113.6396965710413, 40.02449943944249, -2.604166666666662]",36,0,0.8333333333333334,directional_margin,configuration-disjoint; all seeds within a case remain in one split,3.1715277777777775,3.394869921279367,36

@@ -1,0 +1,9 @@
+{
+  "rows": 36,
+  "columns": 5,
+  "rank": 5,
+  "condition_number_unstandardized": 64446.77198910715,
+  "reserve_proxy_at_lower_clip": 0,
+  "reserve_proxy_at_upper_clip": 30,
+  "definition": "m0 is the minimum normalized endpoint margin over vehicle/time/constraint stored at alpha=0; q=(m0.25-m0)/0.25; distance is absolute index distance from source to nearest active CAV"
+}

@@ -1,0 +1,28 @@
+{
+  "scope": "Two layouts, two requested amplitudes, six paired seeds; descriptive cells only",
+  "n_new_runs": 24,
+  "ovm_categories": {
+    "middle": {
+      "A": 9,
+      "C": 3
+    },
+    "rear": {
+      "C": 9,
+      "B": 3
+    }
+  },
+  "matched_idm_categories": {
+    "middle": {
+      "A": 9,
+      "C": 3
+    },
+    "rear": {
+      "A": 7,
+      "B": 4,
+      "C": 1
+    }
+  },
+  "ovm_witnesses_validated": 3,
+  "ovm_witnesses_total": 3,
+  "witness_rule": "positive first prefix gap below 4 m, before any collision in chain; matched to stored gap trace"
+}

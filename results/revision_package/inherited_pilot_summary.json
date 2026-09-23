@@ -1,0 +1,37 @@
+{
+  "provenance": "Transcribed aggregate counts/thresholds from uploaded main.pdf; underlying records not supplied or re-executed.",
+  "placement": {
+    "labels": [
+      "Front",
+      "Even",
+      "Middle",
+      "Rear"
+    ],
+    "reported_N": 40,
+    "reported_empirical_50pct_amplitudes_mps2": [
+      1.5,
+      1.0,
+      1.0,
+      0.5
+    ],
+    "successes_at_alpha_1": [
+      3,
+      3,
+      2,
+      1
+    ],
+    "trials_per_layout": 3
+  },
+  "model_check": {
+    "IDM_successes": 3,
+    "OVM_FVD_successes": 0,
+    "trials": 3,
+    "alpha_mps2": 1.0
+  },
+  "delay_check": {
+    "nominal_successes": 0,
+    "all_delays_removed_successes": 3,
+    "trials": 3,
+    "alpha_mps2": 3.0
+  }
+}
