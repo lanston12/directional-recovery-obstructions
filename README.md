@@ -4,6 +4,14 @@
 
 This repository contains code and numerical source data for a study of finite-amplitude recovery in directed mixed-autonomy vehicle chains. The primary nonlinear study has 1,848 closed-loop runs. A separate 24-run OVM/FVD extension probes the prefix-obstruction mechanism under another human-driving law. Sampled-linear support-function calculations use a distinct model and disturbance family.
 
+## Repository and release
+
+Public repository: https://github.com/lanston12/directional-recovery-obstructions
+
+Submission-version release: https://github.com/lanston12/directional-recovery-obstructions/releases/tag/v1.0.0
+
+The release provides reviewer_data_code.zip and source_data.zip as byte-verified archives. The repository contains the browsable code, numerical data and manuscript sources.
+
 ## Repository structure
 
 - src/sparse_recovery/: simulation model, experiment definitions and sampled-linear calculations.
@@ -61,4 +69,4 @@ The nonlinear observations concern synthetic car-following laws, prescribed puls
 
 ## Citation
 
-Citation metadata will be added after publication. Until then, cite the manuscript title and this repository's release tag when available.
+Citation metadata will be added after publication. Until then, cite the manuscript title, repository URL and release tag v1.0.0.

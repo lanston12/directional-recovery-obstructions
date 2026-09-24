@@ -1,4 +1,8 @@
-# Numerical source-data map (v8 submission freeze)
+# Numerical source-data map
+
+Public repository: https://github.com/lanston12/directional-recovery-obstructions
+
+Versioned archive: https://github.com/lanston12/directional-recovery-obstructions/releases/tag/v1.0.0
 
 Paths are relative to this directory. `source_data/` is an index, not a rewritten data set. The original numerical files remain under `results/` and `derived_results/`; `source_data.zip` packages byte-identical copies of those files together with this map. Figure PDFs/SVGs are produced by `scripts/draw_framework.py` and `scripts/plot_v5_evidence.py`. The latter reads saved data and does not rerun traffic simulations.
 
