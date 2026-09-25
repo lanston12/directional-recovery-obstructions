@@ -10,7 +10,15 @@
 \newcommand{\PI}{\Pi_{\mathcal I}}
 \newcommand{\astar}{\alpha_\star}
 \title{Directional recovery obstructions in sparsely controlled mixed-autonomy traffic}
-\author{}
+\author{Jianbo Feng$^{1,*}$ and Shahid Mumtaz$^{2}$\\[0.4em]
+\parbox{0.96\textwidth}{\centering\small
+$^1$Beijing University of Civil Engineering and Architecture,\\
+Beijing Key Laboratory of Intelligent Construction Equipment\\
+for Urban Building Construction, Beijing 100044, China\\[0.25em]
+$^2$Department of Computer Science, Nottingham Trent University,\\
+Nottingham NG1 4FQ, UK\\[0.35em]
+$^*$Corresponding author: \href{mailto:fengjianbo@bucea.edu.cn}{fengjianbo@bucea.edu.cn}\\
+Shahid Mumtaz: \href{mailto:shahid.mumtaz@ntu.ac.uk}{shahid.mumtaz@ntu.ac.uk}}}
 \date{}
 
 \begin{document}
@@ -173,6 +181,9 @@ For each declared layout-grid cell, category A requires recovery by the evaluate
 The primary grid uses 12 paired seeds. Other placements use 12 seeds through $2.5\,\mathrm{m\,s^{-2}}$ and six at higher amplitudes. Grid endpoints are the largest evaluated amplitude with at least 50\% recovery; ceiling success is reported as censored. Paired contrasts at $\alpha=4.5\,\mathrm{m\,s^{-2}}$ use all 12 paired seeds and 10,000 seed-level bootstrap resamples of the median. Correlated time frames and amplitude cells are not treated as independent samples.
 
 The predictor uses 36 development and 36 configuration-disjoint test records. Its margin feature is the minimum normalized endpoint margin over vehicle, time and constraint at $\alpha=0$; a $0.25\,\mathrm{m\,s^{-2}}$ probe supplies its finite-difference slope. Distance is the absolute index distance from the source to the nearest active CAV. Predictions are clipped to $[0,5]\,\mathrm{m\,s^{-2}}$. Supplementary Fig.~\ref{SM-fig:predictor} reports design rank, conditioning, censoring and configuration-specific errors.
+
+\section*{Funding}
+This work was supported by the Guangxi Science and Technology Program (AA23062031), the National Natural Science Foundation of China (52302508 and 52302488), and the R\&D Program of Beijing Municipal Education Commission (KM202410016003).
 
 \section*{Data availability}
 Numerical source data and simulation outputs supporting this study are available in the public GitHub repository \url{https://github.com/lanston12/directional-recovery-obstructions} and its v1.0.0 release. They include the primary 1,848-run nonlinear study, the separate 24-run OVM/FVD extension, sampled-linear results, representative trajectories, event logs and derived figure-source tables. The repository's source-data inventory maps each display to its numerical sources.
