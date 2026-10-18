@@ -1,8 +1,10 @@
-\documentclass[10pt]{article}
+\documentclass[12pt]{article}
 \usepackage[margin=2.05cm]{geometry}
 \usepackage{amsmath,amssymb,bm,amsthm,booktabs,array,tabularx,graphicx,float,microtype,placeins,xr}
 \externaldocument[SM-]{../build/supplement/supplement}
 \usepackage[hidelinks]{hyperref}
+\usepackage[mathlines]{lineno}
+\hypersetup{pdftitle={Directional recovery obstructions in sparsely controlled mixed-autonomy traffic},pdfauthor={Jianbo Feng and Shahid Mumtaz}}
 \graphicspath{{../figures/results/}}
 \pdfsuppresswarningpagegroup=1
 \newcommand{\W}{\mathcal W}
@@ -23,31 +25,32 @@ Shahid Mumtaz: \href{mailto:shahid.mumtaz@ntu.ac.uk}{shahid.mumtaz@ntu.ac.uk}}}
 
 \begin{document}
 \maketitle
+\linenumbers
 
 \begin{abstract}
-Sparse automated vehicles can attenuate traffic waves, but the finite disturbances recoverable under safety, terminal and traffic-loss constraints remain poorly characterized. In a directed predecessor-following chain, sparse actuation can leave an uncontrolled preceding prefix. For a fixed leader path, delayed histories, parameters and active set, a necessary safety-bound crossing in that prefix obstructs safe recovery by controllers confined downstream. In heterogeneous nonlinear simulations, logged prefix witnesses occur in 93 of 102 observed middle-placement failures and 105 of 107 rear-placement failures. A complementary sampled-linear support-function reserve identifies limiting vehicle--time--constraint rows and a relaxed upper bound under its stated model; delay can shift the limiting row. Endpoint-screened control extends the tested nonlinear recovery range, while margin-priority selection trades lower gap error for greater distance deficit. Sparse-control recoverability is governed by actuation's position relative to finite-amplitude local-constraint propagation, even when endpoint attenuation is favorable.
+Sparse automated vehicles can damp traffic waves, yet their placement may leave safety failures beyond the reach of control. We formulate finite-amplitude recovery with path safety, a moving terminal target, a deadline, actuator and information limits, and a distance-deficit budget. In a directed predecessor-following chain, vehicles ahead of the first active controller form an uncontrolled prefix. For fixed leader motion, delayed histories, parameters and active positions, a required safety violation in this prefix excludes the placement for that disturbance regardless of the downstream policy. In a 1,848-run nonlinear study, logged witnesses identify such obstructions in 93 of 102 observed middle-placement failures and 105 of 107 rear-placement failures. A separate sampled-linear support-function analysis locates limiting vehicles, times and constraints and supplies conditional recovery bounds. Together, the analyses relate available actuation to local safety requirements. These results provide a necessary-condition screen for sparse actuation placement: identify inaccessible safety constraints before investing in downstream controller refinement.
 \end{abstract}
 
 \section*{Introduction}
-Traffic waves arise from delayed, heterogeneous car-following responses and can propagate far from their source. Sparse connected and automated vehicles (CAVs) supply mobile actuation, and field and ring-road experiments have shown wave attenuation under tested conditions \cite{stern2018dissipation,lee2025trafficcontrol,hayat2025explicit}. Formation, placement and nonlinear or learning-based control can change mixed-traffic responses \cite{li2020optimalformation,li2022cooperative,wang2023nonlinear,sheng2024residualrl}. A recent \emph{Nature Communications} study addresses knowledge-guided mixed-platoon control with communication delays through a self-learning strategy \cite{wang2025knowledge}. These studies show that wave damping and controller design matter. A favorable endpoint response, however, does not answer whether a stated finite disturbance can be recovered within hard safety, actuator, time and traffic-loss limits.
+Sparse connected and automated vehicles (CAVs) can serve as mobile actuators in mixed traffic. Field and ring-road experiments have demonstrated traffic-wave attenuation under tested conditions \cite{stern2018dissipation,lee2025trafficcontrol,hayat2025explicit}. For deployment, an additional question arises: where must the available actuators be placed to preserve safety while recovering from a finite disturbance? The answer depends on which vehicles the controllers can influence, as well as on braking, response delay and the time and traffic-loss budgets available for recovery.
 
-Leading cruise control (LCC) provides the relevant structural premise: in a linearized mixed-traffic chain, CAV actuation does not alter the dynamics of preceding human-driven vehicles (HDVs) \cite{wang2022lcc}. Stability and penetration studies examine local behavior near equilibrium \cite{luo2024stabilizing,bahavarnia2024howmany,bahavarnia2026lessconservative}; delay-aware safety control and linear reachability address other aspects of the problem \cite{zhao2024robustsafety,liu2024reachability}. Here we ask whether one causal policy, selected before the admitted realization, can recover from a specified disturbance amplitude and source within path-safety, terminal, actuation, delay and traffic-loss limits. A local safety violation can resolve this question even when an endpoint or small-signal metric looks benign.
+Formation studies show that distributing or grouping CAVs changes traffic performance \cite{li2020optimalformation,li2022cooperative}; nonlinear and learning-based methods offer further ways to smooth traffic \cite{wang2023nonlinear,sheng2024residualrl,wang2025knowledge}. Stability and minimum-penetration analyses characterize behavior near equilibrium \cite{luo2024stabilizing,bahavarnia2024howmany,bahavarnia2026lessconservative}. Those objectives differ from completing a finite recovery task in which every required gap must remain safe and a moving speed--spacing target must be reached by a deadline. Improving endpoint attenuation alone need not resolve an earlier local constraint failure.
 
-We use this directional structure to identify finite-amplitude obstructions in the nonlinear model used for the layout comparison. In the open chain, leader 0 influences followers $1\rightarrow\cdots\rightarrow N$. Vehicles before the first active CAV form an uncontrolled preceding prefix. For fixed leader trajectory, delayed histories, parameters, active set and topology, a logged violation of a required prefix constraint cannot be repaired by a controller behind it. Figure~\ref{fig:framework} links the recovery problem, structural mechanism and complementary evidence.
+Leading cruise control (LCC) establishes the structural premise: in a linearized mixed-traffic chain, CAV actuation does not change the dynamics of preceding human-driven vehicles (HDVs) \cite{wang2022lcc}. Delay-aware safety control constructs controllers satisfying safe-set conditions \cite{zhao2024robustsafety}, while reachability analysis characterizes and shapes disturbance and safety propagation \cite{liu2024reachability}. Here we use the known direction of influence to screen a different object: a candidate active-vehicle placement for a specified finite disturbance, history and set of recovery requirements. A logged violation of a necessary constraint in an unaffected prefix rejects that placement for the stated task, independently of the controller selected behind it.
 
-The contribution has three parts. First, we formulate finite-amplitude recoverability with one causal policy preceding uncertainty, subject to path, terminal, actuation, delay and distance-deficit requirements. Second, we connect directed influence to a trajectory-specific, policy-independent safety obstruction documented by nonlinear prefix witnesses. Third, a sampled-linear support-function reserve resolves limiting vehicle--time--constraint rows, while fixed-resource nonlinear comparisons show how placement changes observed recovery.
+We make three connected contributions. First, finite-amplitude recoverability is defined with one causal policy selected before parameter and disturbance realizations, subject to path safety, terminal recovery, a deadline and a distance-deficit budget. Second, an uncontrolled-prefix obstruction turns directed influence into a constraint-specific placement screen supported by nonlinear trajectory logs. Third, a sampled-linear support-function reserve identifies limiting vehicles, times and constraints, and gives conditional upper bounds; nonlinear comparisons separately show the placement dependence at fixed actuation count. The engineering capability is to identify layouts whose upstream safety failures cannot be addressed by refining the downstream controller (Fig.~\ref{fig:framework}).
 
 \section*{Results}
 Figure~\ref{fig:framework} places the recovery specification, directional obstruction and two evidential layers in one view. The subsequent results first report finite-disturbance behavior in the nonlinear chain, then locate a subset of failures that no downstream policy can prevent under the fixed setup.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering\includegraphics[width=.99\linewidth]{fig1_framework.pdf}
 \caption{\textbf{Finite-amplitude recovery and directional obstruction.} (a) Recovery requires path safety, a moving terminal target and bounded distance deficit by a deadline. (b) With fixed leader path, delayed histories, parameters, active set and directed topology, downstream actuation cannot alter a preceding uncontrolled prefix. A crossing below the safety bound obstructs recovery; collision is assessed separately at zero net gap. (c) Nonlinear trajectory witnesses and sampled-linear reserves provide complementary levels of evidence; loss is evaluated separately from the displayed affine-row reserve. (d) Front/even layouts have empty prefixes, whereas middle/rear layouts have nonempty prefixes. The ratios 93/102 and 105/107 are descriptive witness counts among observed failures in the correlated layout grid. Equal scalar tail transfer can coexist with different local sampled-linear reserves (Supplementary Fig.~\ref{SM-fig:tail}).}
 \label{fig:framework}
 \end{figure}
 
-\subsection*{Collision-aware finite-disturbance recovery}
-The primary nonlinear chain contains $N=40$ followers and four active CAVs at indices $\{1,14,27,40\}$. The requested leader pulse has magnitude $\alpha$ in $\mathrm{m\,s^{-2}}$: $-\alpha$ for 1.5 s and $+\alpha$ for 1.5 s, followed by a common return law. Realized acceleration, jerk and speed are constrained. Recovery at 60 s requires all followers to satisfy the specified 4-m minimum net-gap constraint, remain close to the nonzero target speed and gap throughout the final 3 s, and respect a normalized distance-deficit budget of 0.03. Collision is recorded separately at nonpositive net gap.
+\subsection*{Finite-disturbance recovery under sparse control}
+Four of the $N=40$ followers in the primary nonlinear chain are active CAVs, at indices $\{1,14,27,40\}$. The requested leader pulse has magnitude $\alpha$ in $\mathrm{m\,s^{-2}}$: $-\alpha$ for 1.5 s and $+\alpha$ for 1.5 s, followed by a common return law. Realized acceleration, jerk and speed are constrained. Recovery at 60 s requires all followers to satisfy the specified 4-m minimum net-gap constraint, remain close to the nonzero target speed and gap throughout the final 3 s, and respect a normalized distance-deficit budget of 0.03. Collision is recorded separately at nonpositive net gap.
 
 In the 1,848-run simulation grid, human-only and adaptive-cruise-control traffic had empirical 50\% grid endpoints of $1.0\,\mathrm{m\,s^{-2}}$, and the implemented wave-damping rule reached 1.7. Both endpoint-screened controllers reached the tested $4.5\,\mathrm{m\,s^{-2}}$ ceiling and recovered in 11/12 paired realizations there (Supplementary Table~\ref{SM-tab:nonlinear}). A successful ceiling observation is right-censored: it does not locate the controller's transition.
 
@@ -59,12 +62,26 @@ For illustration, Fig.~\ref{fig:recovery} shows the seed-3 trajectory at request
 \label{fig:recovery}
 \end{figure}
 
-\subsection*{A same-model directional obstruction}
+\subsection*{Uncontrolled-prefix obstruction and placement dependence}
 Let $\mathcal C$ be the active-CAV index set and $j=\min\mathcal C$. In the predecessor-following chain, the prefix $P=\{1,\ldots,j-1\}$ is independent of policies acting only at $\mathcal C$ when the leader path, delayed histories, parameters and topology are fixed. A required safety violation in $P$ therefore obstructs recovery by controllers behind it (Supplementary Theorem~\ref{SM-thm:prefix}). Supplementary section S7 verifies the corresponding nonlinear trajectory witnesses.
 
 The layout grid fixes $N=40$, four active CAVs, margin-priority endpoint-screened control, IDM followers, an external-leader pulse, 0.7-s human reaction delay, 0.2-s information delay, 0.2-s command delay and 0.35-s actuator time constant; only active positions vary. We classified its declared layout--amplitude--seed cells as A, recovery by this controller; B, its observed failure with a first prefix-safety crossing; C, its observed failure unresolved by the prefix test; or D, not evaluated. These correlated grid-cell counts are descriptive. Among 144 evaluated middle-placement cells, 42 recovered and 102 failed; 93 of the failures have a prefix witness (91.2\%). Rear placement gave 37 recoveries and 107 failures among 144 evaluated cells, with witnesses in 105 failures (98.1\%). Each layout declares 168 cells; middle and rear each lack 24 high-amplitude evaluations. Front placement has 144 recoveries, no observed failure and 24 unevaluated cells; even placement has 167 recoveries and one class-C failure among 168 evaluated cells. Both front and even have an empty prefix, so this particular test supplies no class-B witness for them (Fig.~\ref{fig:obstruction}).
 
 For each class-B cell, the first crossing is a logged positive gap below 4 m at a vehicle in $P$, before any prefix collision. The exact discrete prefix follows the same trajectory under every policy confined to the existing active indices. Class C remains unresolved by this necessary-condition test; D denotes unevaluated cells.
+
+Table~\ref{tab:placement} translates this classification into a placement-screening record. All four layouts use four active vehicles. For a B cell, replacing the controller at those same indices cannot prevent the witnessed prefix violation. An empty prefix leaves this test without an affected upstream subsystem; it is not a recovery guarantee, as the even layout's class-C failure demonstrates. Counts compare the declared grids; comparisons at high amplitudes must also account for their different evaluated-seed subsets.
+
+\begin{table}[H]\centering\small
+\caption{Necessary-condition placement screening in the nonlinear IDM study. Each layout declares 168 amplitude--seed cells. Evaluated cells equal A+B+C; A is recovery by the evaluated controller, B is a witnessed prefix obstruction, C is unresolved failure and D is unevaluated. Counts are correlated grid records.}
+\label{tab:placement}
+\begin{tabular}{@{}l l r r r r r r@{}}\toprule
+Layout & Active indices & $|P|$ & Evaluated & A & B & C & D\\\midrule
+Front & $1,2,3,4$ & 0 & 144 & 144 & 0 & 0 & 24\\
+Even & $1,14,27,40$ & 0 & 168 & 167 & 0 & 1 & 0\\
+Middle & $19,20,21,22$ & 18 & 144 & 42 & 93 & 9 & 24\\
+Rear & $37,38,39,40$ & 36 & 144 & 37 & 105 & 2 & 24\\\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=.99\linewidth]{fig2_directional_obstruction.pdf}
@@ -91,7 +108,7 @@ L_J=\max_{d\in\mathcal D}\frac{h}{N\bar vT_r}\sum_{i,k}[-(L_vd)_{ik}]_+,
 \end{equation}
 with $[x]_+=\max(x,0)$ and $\ell/L_J=+\infty$ when $L_J=0$. The positive-part loss is evaluated separately for the sampled-linear disturbance family (Supplementary Theorem~\ref{SM-thm:reserve}).
 
-Let $\astar$ denote the supremum of amplitudes for which one causal policy achieves recovery for every admitted parameter and disturbance realization, as defined in Methods. A necessary row in open-loop lifted form is $a_r+p_r^\top U+\alpha d_r^\top d\le b_r$, where $U$ stacks commands and $a_r,p_r,d_r$ are the nominal, control-response and disturbance-response coefficients. If a compact relaxation $\mathcal U_R$ contains the commands of every admissible policy, then
+For the same sampled-linear model and disturbance family, let $\astar$ be the system-level limit defined in Methods. A necessary row in open-loop lifted form is $a_r+p_r^\top U+\alpha d_r^\top d\le b_r$, where $U$ stacks commands and $a_r,p_r,d_r$ are the nominal, control-response and disturbance-response coefficients. If a compact relaxation $\mathcal U_R$ contains the commands of every admissible policy, then
 \begin{equation}
 \astar\leq \frac{b_r-a_r+h_{\mathcal U_R}(-p_r)}{h_{\mathcal D}(d_r)}
 \label{eq:upper}
@@ -105,6 +122,11 @@ In the 12-follower illustration, the limiting candidate row at 0.2 s common dela
 \caption{\textbf{Constraint-level sampled-linear reserve.} (a) Selected candidate constraint radii at 0.2 s common delay; black rings identify full fixed-policy radii. Values beyond the admitted amplitude domain are analytical continuations. (b) Fixed-policy radii versus common delay for front and rear placements. At 0.4 s the rear limiting row moves to follower 10.}
 \label{fig:linear}
 \end{figure}
+
+\subsection*{Engineering implications for sparse actuation placement}
+The prefix test can be applied before selecting a downstream controller. For each candidate active set, fix the leader path, admissible histories, vehicle parameters and disturbance; propagate only the unaffected prefix; and check its required safety constraints. A violation supplies a condition-specific rejection of that active set. If the disturbance and parameter realization belong to a robust recovery specification, a single such witness is enough to exclude the placement for that specification. Passing the test leaves downstream constraints, terminal recovery and the loss budget to be checked.
+
+This distinction explains the layout evidence without requiring a monotone rule in prefix length. Middle and rear have many witnessed rejections, while the front and even sets admit no obstruction of this particular prefix type. In the six seeds shared by every high-amplitude placement cell, the reported grid endpoints remain unchanged: front reaches the tested ceiling, middle recovers in 3/6 runs at $1.5\,\mathrm{m\,s^{-2}}$ and 0/6 at 1.7, and rear in 6/6 at 1.0 and 1/6 at 1.5. The sampled-linear example supplies complementary bottleneck information: a zero control-response row exposes a limit that no downstream command can change, while its slack-to-support ratio quantifies the disturbance allowance for that model. These results favor placement assessment against local path constraints before optimizing downstream tracking performance.
 
 \subsection*{Margin-priority trade-off at the scan ceiling}
 The two endpoint-screened controllers use the same candidates, information and physical bounds. Margin priority changes only the secondary selection among commands within 0.01 of the minimum tracking cost. Across 12 paired trajectories at the ceiling, margin priority reduced endpoint gap error in every pair: the median difference was $-1.096$ m, with a seed-bootstrap 95\% interval for the median of $[-1.483,-0.714]$ m. The maximum gap error over the final 3 s also decreased in every pair (median difference $-0.718$ m; interval $[-0.990,-0.436]$ m). Normalized distance deficit increased in every pair (median difference 0.00218; interval [0.00207, 0.00240]) (Fig.~\ref{fig:paired}).
@@ -122,13 +144,15 @@ Source location, finite-horizon disturbance reach and driver-model dependence al
 
 \FloatBarrier
 \section*{Discussion}
-The central result separates controller-specific failures from recovery failures imposed by directed topology and path-safety constraints. Ahead of the first active CAV, an uncontrolled prefix follows the same trajectory for every downstream policy under the fixed leader path, histories, parameters and topology. A required safety-bound crossing in that prefix therefore supplies a policy-independent obstruction for the stated run.
+Sparse actuation placement determines which necessary safety constraints remain accessible to control. In the stated predecessor-following model, the prefix ahead of the first active CAV evolves independently of all controllers behind it. Combining this known directional structure with a required finite-amplitude safety constraint supplies an engineering rejection criterion: a witnessed prefix crossing excludes that active set for the stated leader path, histories, parameters and disturbance. The 198 IDM records and three OVM/FVD trajectory witnesses show how the criterion can be evaluated using explicit safety events rather than controller failure alone.
 
-Endpoint attenuation cannot resolve this local constraint geometry. In the sampled-linear cascade, permuting fixed scalar follower factors preserves the first-to-last transfer product while changing local vehicle--time--constraint reserves (Supplementary Fig.~\ref{SM-fig:tail}). The nonlinear layout comparison gives the spatial counterpart: with the same vehicle count and controller, placing actuation behind a long uncontrolled prefix exposes upstream safety constraints before downstream inputs can affect them. Sparse placement matters through the position of constrained regions relative to available actuation.
+For vehicle-placement design, this criterion complements formation optimization and LCC analysis \cite{li2022cooperative,wang2022lcc}. It identifies a reason to change the active set rather than continue refining a controller at inaccessible positions. The nonlinear comparison holds vehicle count, physical limits and controller fixed while varying active indices; the common-seed subset preserves the principal layout contrast. The result is a necessary-condition screen, not an optimizer of placement. Surviving layouts still require a feasible policy, and an empty prefix only removes this particular obstruction.
 
-The two evidence layers illuminate this mechanism at different scales. The sampled-linear reserve quantifies limiting vehicle--time--constraint rows and a relaxed upper bound for its stated model and disturbance family. Nonlinear trajectory logs independently establish the observed prefix crossings under the implemented car-following dynamics. Controller comparisons show the practical trade-off between terminal gap error and distance deficit at the tested ceiling.
+The sampled-linear reserve makes the remaining constraint geometry interpretable. A limiting row identifies a vehicle, sample time and physical requirement, while the relaxation bounds what any allowed policy could achieve in that sampled model. Permuting fixed scalar follower factors preserves the tail transfer product but changes intermediate constraint reserves (Supplementary Fig.~\ref{SM-fig:tail}); endpoint attenuation therefore omits information relevant to actuator placement. The nonlinear witnesses concern a distinct model and disturbance protocol and establish their own trajectory-specific obstruction. The two analyses provide complementary design evidence, rather than a linear certificate for the nonlinear chain.
 
-A low-dimensional directional-feature predictor did not transfer across held configurations (Supplementary Fig.~\ref{SM-fig:predictor}), so structural insight alone does not supply a quantitative boundary model. The present analysis uses synthetic car-following laws, prescribed disturbance families, a fixed single-lane order and a finite horizon. Future work should determine how upstream actuation, communication, lane changes and bidirectional interactions reshape finite-amplitude recovery boundaries.
+Controller refinement remains useful after placement screening. At the tested ceiling, margin-priority selection improved gap tracking while increasing distance deficit and leaving the recovery count unchanged. Structural features alone also proved insufficient for prediction: on configuration-disjoint tests, the directional-feature predictor had mean absolute error $3.17\,\mathrm{m\,s^{-2}}$, compared with $1.30\,\mathrm{m\,s^{-2}}$ for distance alone (Supplementary Fig.~\ref{SM-fig:predictor}). This negative result limits the use of the current reserve proxy as a transferable nonlinear boundary predictor.
+
+The evidence uses synthetic car-following laws, prescribed disturbances, fixed single-lane order and a finite horizon. Driver-model dependence and the finite reach of disturbances limit extrapolation to other operating conditions. Lane changes, upstream actuation or bidirectional dynamics can change the influence structure and must be included before applying the screen to those settings. Within the specified model, the practical outcome is a verifiable way to distinguish an inaccessible safety constraint from a failure that may still be addressed by controller design.
 
 \section*{Methods}
 \subsection*{Recovery problem}
@@ -149,6 +173,8 @@ with $\tau_a=0.35$ s, primary command delay $\delta_i=0.2$ s and separate 0.2-s 
 At each $\Delta t=0.1$-s step, all delayed states are read from a common time-indexed snapshot; follower requests are formed, then saturation, command-delay lookup, actuator lag, jerk and acceleration clipping precede speed, position and gap updates. Newly updated follower states enter only the next step. Speed is projected to its bounds after the acceleration update. A collision flag is recorded at nonpositive net gap; numerical integration then continues for failure accounting, while physical trajectory displays end at collision. Matched controller runs regenerate the same parameter sequence from the same pseudorandom seed.
 
 \subsection*{Nonlinear controllers and endpoint validation}
+Human-only traffic is an uncontrolled reference. The ACC and wave-damping laws below are implementations used in this study; the latter is a speed-restoration comparator, not a reproduction of a published field controller. ACC, wave damping and both endpoint-screened controllers use the same active positions, delayed predecessor/ego measurements and physical command--actuator limits in matched configurations. Reinitializing the parameter generator from the same seed pairs the heterogeneous vehicles across methods. The comparisons assess finite-recovery outcomes and tracking--loss trade-offs; they do not rank unimplemented published algorithms.
+
 The adaptive-cruise-control (ACC) command is $k_s(s_i-s_i^{\rm des})+k_v(v_{i-1}-v_i)$ with $s_i^{\rm des}=3\,\mathrm m+(1.05\,\mathrm s)v_i$, $k_s=0.18\,\mathrm{s^{-2}}$ and $k_v=0.75\,\mathrm{s^{-1}}$. The wave-damping baseline adds $(0.35\,\mathrm{s^{-1}})(\bar v-v_i)$ as an implementation-specific speed-restoration term.
 
 Endpoint-screened control enumerates 31 commands $u_j=-5+0.25j$, $j=0,\ldots,30$. At horizon $H=1.2$ s it uses $\rho=1-\exp[-H/\max(\tau_a,\Delta t)]$ and
@@ -175,21 +201,30 @@ Recovery requires $s_i\ge4$ m throughout, no collision, and throughout the final
 \end{equation}
 where $T_r=60$ s and the external leader is excluded. This target-speed distance deficit is evaluated by trapezoidal quadrature on sampled nonlinear speeds; the sampled-linear illustration uses right-endpoint summation. Path safety and recovery are assessed at the reported sample times.
 
-\subsection*{Directional classification and statistical analysis}
+\subsection*{Statistical Analyses}
 For each declared layout-grid cell, category A requires recovery by the evaluated controller. Category B requires failure, nonempty prefix $P$, and a logged first prefix gap below 4 m before any prefix collision; the structural theorem makes this crossing independent of controllers behind the prefix under the stated topology. Category C contains evaluated failures without this prefix witness; they remain unresolved for other admissible controllers. Category D denotes an unevaluated cell. Exact active indices and witness conditions appear in Supplementary Table~\ref{SM-tab:layouts} and section S7; no online reordering is allowed.
 
-The primary grid uses 12 paired seeds. Other placements use 12 seeds through $2.5\,\mathrm{m\,s^{-2}}$ and six at higher amplitudes. Grid endpoints are the largest evaluated amplitude with at least 50\% recovery; ceiling success is reported as censored. Paired contrasts at $\alpha=4.5\,\mathrm{m\,s^{-2}}$ use all 12 paired seeds and 10,000 seed-level bootstrap resamples of the median. Correlated time frames and amplitude cells are not treated as independent samples.
+The primary grid uses 12 paired seeds. Other placements use 12 seeds through $2.5\,\mathrm{m\,s^{-2}}$ and six at higher amplitudes. Grid endpoints are the largest evaluated amplitude with at least 50\% recovery; ceiling success is reported as censored. Paired contrasts at $\alpha=4.5\,\mathrm{m\,s^{-2}}$ use all 12 paired seeds and 20,000 seed-level bootstrap resamples of the median, matching the analysis script. The margin-priority tolerance was selected using seed 3, which is included in these descriptive paired comparisons. Correlated time frames and amplitude cells are not treated as independent samples.
 
 The predictor uses 36 development and 36 configuration-disjoint test records. Its margin feature is the minimum normalized endpoint margin over vehicle, time and constraint at $\alpha=0$; a $0.25\,\mathrm{m\,s^{-2}}$ probe supplies its finite-difference slope. Distance is the absolute index distance from the source to the nearest active CAV. Predictions are clipped to $[0,5]\,\mathrm{m\,s^{-2}}$. Supplementary Fig.~\ref{SM-fig:predictor} reports design rank, conditioning, censoring and configuration-specific errors.
 
 \section*{Funding}
 This work was supported by the Guangxi Science and Technology Program (AA23062031), the National Natural Science Foundation of China (52302508 and 52302488), and the R\&D Program of Beijing Municipal Education Commission (KM202410016003).
 
+\section*{Author contributions}
+J.F. conceived the study, developed the methodology, carried out the theoretical analysis and numerical simulations, analyzed the data, prepared the figures, wrote the original manuscript, and acquired funding for the work. S.M. contributed to the conceptual development and interpretation of the results, supervised the study, and critically reviewed and revised the manuscript. Both authors discussed the results and approved the final version of the manuscript.
+
+\section*{Competing interests}
+The authors declare no competing interests.
+
+\section*{AI-assisted preparation}
+OpenAI ChatGPT and Codex assisted with manuscript organization and English expression, literature-search screening, code drafting and debugging, figure-script editing, and discussion of theoretical arguments and interpretation of simulation outputs. Scientific decisions and responsibility for the submitted content remain with the authors. Figures were produced using numerical plotting and vector-drawing code.
+
 \section*{Data availability}
-Numerical source data and simulation outputs supporting this study are available in the public GitHub repository \url{https://github.com/lanston12/directional-recovery-obstructions} and its v1.0.0 release. They include the primary 1,848-run nonlinear study, the separate 24-run OVM/FVD extension, sampled-linear results, representative trajectories, event logs and derived figure-source tables. The repository's source-data inventory maps each display to its numerical sources.
+Numerical source data and simulation outputs are publicly available at \url{https://github.com/lanston12/directional-recovery-obstructions}, with the scientific data frozen in release v1.0.0. The release includes the primary 1,848-run nonlinear study, the separate 24-run OVM/FVD extension, sampled-linear responses, representative trajectories, event logs and figure-source tables. The source-data inventory maps displays to their numerical inputs. Data are accessible without an access request.
 
 \section*{Code availability}
-Custom simulation, verification, analysis and figure-generation code, together with configurations and manuscript sources, is available at \url{https://github.com/lanston12/directional-recovery-obstructions}. The code corresponding to this manuscript is archived in release v1.0.0.
+Simulation, verification and analysis code and configurations are available at \url{https://github.com/lanston12/directional-recovery-obstructions}, release v1.0.0. Release v1.0.1-ce-transfer preserves the present manuscript, table and figure-format adjustments with the same scientific data. The repository README gives dependencies and commands; \texttt{scripts/check\_v6\_evidence.py} and \texttt{scripts/check\_v7\_extension.py} verify the prefix evidence without rerunning the primary grid.
 
 \FloatBarrier
 \section*{Supplementary information}

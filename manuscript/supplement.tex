@@ -1,9 +1,10 @@
-\documentclass[10pt]{article}
+\documentclass[11pt]{article}
 \usepackage[margin=2.2cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,bm}
 \usepackage{booktabs,array,tabularx,graphicx,float}
 \graphicspath{{../figures/results/}}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Directional recovery obstructions in sparsely controlled mixed-autonomy traffic: Supplementary Information},pdfauthor={Jianbo Feng and Shahid Mumtaz}}
 \usepackage{microtype,placeins}
 \pdfsuppresswarningpagegroup=1
 \renewcommand{\thesection}{S\arabic{section}}
@@ -60,8 +61,10 @@ The sampled criterion uses right-endpoint quadrature. The nonnegative dimensionl
 
 Let $\Theta$ be the parameter set and $\PI$ the class of policies using information available at each decision time. The robust system-level limit is
 \begin{equation}
-\astar=\sup\{\alpha\in[0,\alpha_{max}]:\exists\pi\in\PI\ \forall\theta\in\Theta\ \forall W\in\mathcal W(\alpha),\
-\text{all path, command, terminal and loss constraints hold}\}.
+\begin{aligned}
+\astar=\sup\big\{\alpha\in[0,\alpha_{max}]:{}&\exists\pi\in\PI\ \forall\theta\in\Theta\ \forall W\in\mathcal W(\alpha),\\
+&\text{all path, command, terminal and loss constraints hold}\big\}.
+\end{aligned}
 \label{eq:astar}
 \end{equation}
 Nominal feasibility at $\alpha=0$ is assumed, and the policy is chosen before the uncertainty and disturbance are realized. Initial states and delayed-input histories remain fixed within each recovery problem.
@@ -367,7 +370,7 @@ Margin command delay: 0 / 0.2 / 0.4 s & $\geq4.5/\geq4.5/4.0$ & Other delay chan
 \end{tabularx}
 \end{table}
 
-At $\alpha=4.5$, the endpoint-screened and margin-priority controllers both recover 11/12 seeds. Paired trajectories provide differences for all 12 seeds. Margin-priority minus endpoint-screened endpoint gap error has median $-1.096$ m and a 10,000-resample seed-bootstrap 95\% interval for the median of $[-1.483,-0.714]$ m. The final-3-s maximum gap-error difference has median $-0.718$ m and interval $[-0.990,-0.436]$ m. Normalized distance-deficit difference has median 0.00218 and interval [0.00207, 0.00240]. Every one of the 12 pairs has the same direction for all three outcomes. These descriptive intervals preserve seed pairing.
+At $\alpha=4.5$, the endpoint-screened and margin-priority controllers both recover 11/12 seeds. Paired trajectories provide differences for all 12 seeds. Margin-priority minus endpoint-screened endpoint gap error has median $-1.096$ m and a 20,000-resample seed-bootstrap 95\% interval for the median of $[-1.483,-0.714]$ m. The final-3-s maximum gap-error difference has median $-0.718$ m and interval $[-0.990,-0.436]$ m. Normalized distance-deficit difference has median 0.00218 and interval [0.00207, 0.00240]. Every one of the 12 pairs has the same direction for all three outcomes. These descriptive intervals preserve seed pairing.
 
 \subsection*{Boundary records, regression features and failure accounting}
 For each seed and configuration, the recorded response is the largest successful evaluated amplitude, not a connected-prefix estimator. A separate flag tests whether any success follows a failure in the ordered grid; none of the 156 per-seed boundary records is flagged. Aggregate 50\% endpoints are the largest amplitudes with recovery in at least half of the available seeds. Successful observations at the largest evaluated amplitude are right-censored, but the regressions treat their recorded endpoint as a numeric label rather than using a censoring-aware model.
@@ -408,6 +411,8 @@ For active set $\mathcal C$, let $j=\min\mathcal C$ and $P=\{1,\ldots,j-1\}$. Th
 Each declared layout--amplitude--seed cell is assigned exactly one category: A, recovered by the evaluated controller; B, its failure with a logged first prefix crossing below the specified 4-m safety minimum; C, evaluated failure without such a prefix witness; or D, unevaluated. Over 168 declared cells per layout, front has 144 evaluated (A=144, B=C=0, D=24), even 168 (A=167, B=0, C=1, D=0), middle 144 (A=42, B=93, C=9, D=24), and rear 144 (A=37, B=105, C=2, D=24). Thus B accounts for 93/102 middle failures and 105/107 rear failures. Repeated amplitudes and common seeds are correlated, so these counts describe the evaluated grid rather than independent samples. D is a missing-evaluation label, not a physical phase; C remains unresolved by the prefix test.
 
 Across all 198 B records, the earliest logged prefix safety or collision event is a positive-gap crossing below 4 m in the uncontrolled prefix and precedes any prefix collision. Matched configurations reconstruct the same parameter sequence from their fixed seeds. These trajectory-specific witnesses establish obstruction under the directed model and declared histories.
+
+For placement screening, these records reject the associated active set for that particular disturbance, history and parameter realization under the declared recovery requirements. A robust specification containing that realization is consequently infeasible for this placement. The same test can be repeated over candidate active sets, but passing it is only a necessary condition for recovery. Neither a zero-length prefix nor the absence of a logged witness establishes terminal feasibility or compliance with the distance-deficit budget. Main Table 1 summarizes this distinction using the existing layout records; no new simulation cells are added.
 
 The discrete update is $x_{i,k+1}=x_{i,k}+\Delta t\,v_{i,k+1}$, with $0\le v_{i,k+1}\le35\,\mathrm{m\,s^{-1}}$ and $\Delta t=0.1$ s. Hence one-step net-gap decrease is at most 3.5 m. A first crossing from a positive gap to a nonpositive gap must therefore follow a prior sample below 4 m. More directly, the 198 logged first prefix crossings are already positive-gap safety violations before prefix collision. A collision of a vehicle behind $P$ does not alter this autonomous prefix subsystem in the declared model. The structural statement remains conditional on the fixed model, histories, leader path, parameters and active set, and it rules out prevention of the prefix violation under that setup rather than asserting inevitable collision.
 

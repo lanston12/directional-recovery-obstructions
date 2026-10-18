@@ -95,8 +95,9 @@ for method in methods:
         ax.plot(time, min_gap, color=COLORS[method], label=LABELS[method], lw=1.5)
 ax.axhline(4, color="black", lw=.8, ls="--", label="Specified 4-m safety minimum")
 ax.set(title="(d) Minimum net gap before any collision", xlabel="Time (s)", ylabel="Minimum net gap (m)")
-ax.legend(frameon=True, loc="upper right", fontsize=6.8, facecolor="white", framealpha=.9)
-fig.suptitle("Diagnostic replay: N=40, requested $\\alpha=4.5$ m s$^{-2}$, seed 3")
+ax.legend(frameon=False, loc="upper center", bbox_to_anchor=(.5, -.22),
+          ncol=2, fontsize=6.8)
+fig.suptitle("N=40, requested $\\alpha=4.5$ m s$^{-2}$, seed 3")
 save(fig, "fig1_recovery_collision_aware")
 
 
