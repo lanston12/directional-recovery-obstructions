@@ -106,11 +106,11 @@ mechanism = pd.read_csv(DERIVED / "nonlinear_directional_mechanism_runs.csv")
 layout_cfg = pd.read_csv(DERIVED / "layout_indices_and_config.csv")
 nonlinear40 = layout_cfg[(layout_cfg.problem == "nonlinear") & (layout_cfg.N_followers == 40)].set_index("layout")
 layouts = ["front", "even", "middle", "rear"]
-fig = plt.figure(figsize=(10.8, 7.8), constrained_layout=True)
-grid = fig.add_gridspec(2, 3, width_ratios=(1.05, 1.25, 1.25))
-schematic = fig.add_subplot(grid[:, 0])
-mini_axes = [fig.add_subplot(grid[0, 1]), fig.add_subplot(grid[0, 2]),
-             fig.add_subplot(grid[1, 1]), fig.add_subplot(grid[1, 2])]
+fig = plt.figure(figsize=(7.4, 7.5), constrained_layout=True)
+grid = fig.add_gridspec(4, 2, height_ratios=(1.1, 2, 2, .55))
+schematic = fig.add_subplot(grid[0, :])
+mini_axes = [fig.add_subplot(grid[1, 0]), fig.add_subplot(grid[1, 1]),
+             fig.add_subplot(grid[2, 0]), fig.add_subplot(grid[2, 1])]
 for y, layout in enumerate(layouts[::-1]):
     active = json.loads(nonlinear40.loc[layout, "active_indices"])
     schematic.scatter(np.arange(1, 41), np.full(40, y), s=9, color="#c8c8c8")
@@ -118,8 +118,8 @@ for y, layout in enumerate(layouts[::-1]):
     if min(active) > 1:
         schematic.plot([1, min(active)-1], [y, y], color=CATEGORY_COLORS["B"], lw=4, alpha=.55)
 schematic.set_yticks(range(4)); schematic.set_yticklabels([x.title() for x in layouts[::-1]])
-schematic.set(xlim=(0, 41), xlabel="Follower index", title="(a) Active sets and uncontrolled prefixes")
-schematic.text(.02, .015, "Blue squares: active CAVs; orange segment: prefix P", transform=schematic.transAxes, fontsize=7.5)
+schematic.set(xlim=(0, 41), xlabel="Follower index", title="(a) Active sets and uncontrolled prefixes\nBlue squares: active CAVs; orange segment: prefix P")
+schematic.tick_params(labelsize=9)
 
 category_numbers = {cat: j for j, cat in enumerate("ABCD")}
 for ax, layout, panel in zip(mini_axes, layouts, "bcde"):
@@ -134,16 +134,17 @@ for ax, layout, panel in zip(mini_axes, layouts, "bcde"):
     counts = group.category.value_counts()
     failures = int(counts.get("B", 0) + counts.get("C", 0))
     suffix = f"; B/fail={counts.get('B', 0)}/{failures}" if failures else ""
-    ax.set_title(f"({panel}) {layout.title()}: " + "/".join(str(counts.get(c, 0)) for c in "ABCD") + suffix, fontsize=8)
-    ax.set_xlabel("Requested amplitude (m s$^{-2}$); discrete categories")
+    ax.set_title(f"({panel}) {layout.title()}: " + "/".join(str(counts.get(c, 0)) for c in "ABCD") + suffix, fontsize=9)
+    ax.set_xlabel("Requested amplitude (m s$^{-2}$)\nDiscrete categories", fontsize=9)
     if layout in ("front", "middle"):
         ax.set_ylabel("Seed")
-    ax.set_xticks(range(len(alphas))); ax.set_xticklabels([f"{x:g}" for x in alphas], rotation=55, fontsize=6.2)
-    ax.set_yticks(range(0, len(seeds), 2)); ax.set_yticklabels([str(seeds[j]) for j in range(0, len(seeds), 2)], fontsize=6.2)
+    ax.set_xticks(range(len(alphas))); ax.set_xticklabels([f"{x:g}" for x in alphas], rotation=55, fontsize=9)
+    ax.set_yticks(range(0, len(seeds), 2)); ax.set_yticklabels([str(seeds[j]) for j in range(0, len(seeds), 2)], fontsize=9)
 from matplotlib.patches import Patch
 fig.legend([Patch(color=CATEGORY_COLORS[c], label=f"{c}: {CATEGORY_LABELS[c]}") for c in "ABCD"],
            [f"{c}: {CATEGORY_LABELS[c]}" for c in "ABCD"],
-           loc="lower center", bbox_to_anchor=(0.53, -0.10), ncol=2, frameon=False)
+           loc="lower center", bbox_to_anchor=(0.5, .005), ncol=2, frameon=False,
+           fontsize=9, columnspacing=1.2, labelspacing=.7)
 save(fig, "fig2_directional_obstruction")
 
 
@@ -210,7 +211,10 @@ save(fig, "fig4_paired_tradeoff")
 source = pd.read_csv(DERIVED / "source_protocol_replays_alpha21.csv")
 reach = pd.read_csv(DERIVED / "finite_horizon_chain_reach_alpha40_seed97.csv")
 jac = pd.read_csv(DERIVED / "mean_equilibrium_jacobians.csv")
-fig, axes = plt.subplots(1, 3, figsize=(10.3, 3.6), constrained_layout=True)
+fig = plt.figure(figsize=(7.4, 6.1), constrained_layout=True)
+grid = fig.add_gridspec(2, 2, height_ratios=(1.15, 1))
+axes = [fig.add_subplot(grid[0, 0]), fig.add_subplot(grid[0, 1]),
+        fig.add_subplot(grid[1, :])]
 leader = source[source.case_id == "even_idm_leader_d02"].set_index("seed")
 internal = source[source.case_id == "even_idm_internal8_d02"].set_index("seed")
 common = leader.index.intersection(internal.index)
@@ -221,11 +225,11 @@ axes[0].scatter(np.zeros(len(common)), leader.loc[common, "speed_drop_mps"], col
 axes[0].scatter(np.ones(len(common)), internal.loc[common, "speed_drop_mps"], color="#B279A2", label="Follower-8 HDV request")
 axes[0].set_xticks([0, 1]); axes[0].set_xticklabels(["Leader", "Follower 8"])
 axes[0].set(title="(a) Source response at requested $\\alpha=2.1$", ylabel="Actual source speed drop (m s$^{-1}$)")
-axes[0].legend(frameon=False, fontsize=6.8)
+axes[0].legend(frameon=False, fontsize=9.5, loc="upper right", labelspacing=.6)
 axes[1].bar(reach.N_followers.astype(str), reach.affected_fraction, color="#72B7B2")
 for j, row in enumerate(reach.itertuples(index=False)):
     axes[1].text(j, row.affected_fraction + .025, f"{int(row.affected_count)}/{int(row.N_followers)}\n$\\bar J$={row.normalized_loss_full_N:.3f}",
-                 ha="center", fontsize=7)
+                 ha="center", fontsize=8.5)
 axes[1].set_ylim(0, 1.12)
 axes[1].set(title="(b) Disturbance reach by 60 s", xlabel="Follower count N", ylabel="Fraction with $|v-20|\\geq1$ m s$^{-1}$")
 xj = np.arange(3)
@@ -239,7 +243,9 @@ gap_axis = axes[2].twinx()
 gap_axis.scatter([-width/2, width/2], jac.iloc[:, 1].to_numpy(float), marker="D", color=["#4C78A8", "#F58518"], s=36)
 gap_axis.set_ylim(.069, .075); gap_axis.set_xlim(-.55, 2.55)
 gap_axis.set_ylabel("Gap derivative (s$^{-2}$)")
-axes[2].legend(frameon=False, loc="upper center", fontsize=6.6)
+axes[2].legend(frameon=False, loc="lower left", fontsize=9.5)
+for ax in [*axes, gap_axis]:
+    ax.tick_params(labelsize=9.5)
 save(fig, "fig5_scope_diagnostics")
 
 

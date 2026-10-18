@@ -18,7 +18,7 @@ $^1$Beijing University of Civil Engineering and Architecture,\\
 Beijing Key Laboratory of Intelligent Construction Equipment\\
 for Urban Building Construction, Beijing 100044, China\\[0.25em]
 $^2$Department of Computer Science, Nottingham Trent University,\\
-Nottingham NG1 4FQ, UK\\[0.35em]
+Clifton Campus, Nottingham NG11 8NS, UK\\[0.35em]
 $^*$Corresponding author: \href{mailto:fengjianbo@bucea.edu.cn}{fengjianbo@bucea.edu.cn}\\
 Shahid Mumtaz: \href{mailto:shahid.mumtaz@ntu.ac.uk}{shahid.mumtaz@ntu.ac.uk}}}
 \date{}
@@ -45,8 +45,8 @@ Figure~\ref{fig:framework} places the recovery specification, directional obstru
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=.99\linewidth]{fig1_framework.pdf}
-\caption{\textbf{Finite-amplitude recovery and directional obstruction.} (a) Recovery requires path safety, a moving terminal target and bounded distance deficit by a deadline. (b) With fixed leader path, delayed histories, parameters, active set and directed topology, downstream actuation cannot alter a preceding uncontrolled prefix. A crossing below the safety bound obstructs recovery; collision is assessed separately at zero net gap. (c) Nonlinear trajectory witnesses and sampled-linear reserves provide complementary levels of evidence; loss is evaluated separately from the displayed affine-row reserve. (d) Front/even layouts have empty prefixes, whereas middle/rear layouts have nonempty prefixes. The ratios 93/102 and 105/107 are descriptive witness counts among observed failures in the correlated layout grid. Equal scalar tail transfer can coexist with different local sampled-linear reserves (Supplementary Fig.~\ref{SM-fig:tail}).}
-\label{fig:framework}
+\refstepcounter{figure}\label{fig:framework}
+\par\smallskip{\small Figure~\thefigure}\par
 \end{figure}
 
 \subsection*{Finite-disturbance recovery under sparse control}
@@ -58,8 +58,8 @@ For illustration, Fig.~\ref{fig:recovery} shows the seed-3 trajectory at request
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=.98\linewidth]{fig1_recovery_collision_aware.pdf}
-\caption{\textbf{Representative finite-disturbance trajectories.} (a--c) Speed fields for the wave-damping rule (Wave), endpoint-screened controller (Endpoint) and margin-priority endpoint-screened controller (Margin priority) at $N=40$, requested $\alpha=4.5\,\mathrm{m\,s^{-2}}$ and seed 3. The wave-rule field ends at its first collision (19.3 s). (d) Minimum net gap; the dashed line marks the specified 4-m safety bound. Aggregate outcomes are reported separately.}
-\label{fig:recovery}
+\refstepcounter{figure}\label{fig:recovery}
+\par\smallskip{\small Figure~\thefigure}\par
 \end{figure}
 
 \subsection*{Uncontrolled-prefix obstruction and placement dependence}
@@ -72,8 +72,8 @@ For each class-B cell, the first crossing is a logged positive gap below 4 m at 
 Table~\ref{tab:placement} translates this classification into a placement-screening record. All four layouts use four active vehicles. For a B cell, replacing the controller at those same indices cannot prevent the witnessed prefix violation. An empty prefix leaves this test without an affected upstream subsystem; it is not a recovery guarantee, as the even layout's class-C failure demonstrates. Counts compare the declared grids; comparisons at high amplitudes must also account for their different evaluated-seed subsets.
 
 \begin{table}[H]\centering\small
-\caption{Necessary-condition placement screening in the nonlinear IDM study. Each layout declares 168 amplitude--seed cells. Evaluated cells equal A+B+C; A is recovery by the evaluated controller, B is a witnessed prefix obstruction, C is unresolved failure and D is unevaluated. Counts are correlated grid records.}
-\label{tab:placement}
+\refstepcounter{table}\label{tab:placement}
+\par\smallskip{\small Table~\thetable}\par
 \begin{tabular}{@{}l l r r r r r r@{}}\toprule
 Layout & Active indices & $|P|$ & Evaluated & A & B & C & D\\\midrule
 Front & $1,2,3,4$ & 0 & 144 & 144 & 0 & 0 & 24\\
@@ -85,11 +85,12 @@ Rear & $37,38,39,40$ & 36 & 144 & 37 & 105 & 2 & 24\\\bottomrule
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=.99\linewidth]{fig2_directional_obstruction.pdf}
-\caption{\textbf{Spatial mechanism and nonlinear obstruction classification.} (a) Active indices (blue) and uncontrolled preceding prefixes (orange) for four $N=40$ layouts. (b--e) Seed-by-requested-amplitude outcomes for the margin-priority endpoint-screened controller with IDM followers under the same delays and physical limits. Column spacing is categorical. A denotes recovery, B a prefix-safety witness, C a failed cell unresolved by the prefix test and D an unevaluated cell. Panel titles give A/B/C/D totals and B among observed failures. Exact active indices appear in Supplementary Table~\ref{SM-tab:layouts}.}
-\label{fig:obstruction}
+\refstepcounter{figure}\label{fig:obstruction}
+\par\smallskip{\small Figure~\thefigure}\par
 \end{figure}
 
 \subsection*{Constraint-resolved sampled-linear limits}
+Affine-policy parameterizations and adjustable disturbance sets are established tools in constrained robust control\cite{goulart2006policies,zhang2017adjustable}; here they provide context for a traffic-recovery reserve resolved by vehicle, time and constraint.
 For a fixed sampled-linear model and one implementable affine policy $\pi$, stack all sampled states, commands and terminal quantities in $Q$. Let $W=\alpha Dd$, where $D$ maps dimensionless disturbance coordinates $d\in\mathcal D$ to a unit-amplitude waveform, $\mathcal D$ is compact and contains zero, and $0\le\alpha\le\alpha_{\max}$ is the admitted amplitude range. The nominal response $Q^0$ and unit-amplitude response map $L_\pi$ give
 \begin{equation}
 Q=Q^0+\alpha L_\pi d,\qquad c_r^\top Q\le b_r .
@@ -119,8 +120,8 @@ In the 12-follower illustration, the limiting candidate row at 0.2 s common dela
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=.96\linewidth]{fig3_linear_constraint_rows.pdf}
-\caption{\textbf{Constraint-level sampled-linear reserve.} (a) Selected candidate constraint radii at 0.2 s common delay; black rings identify full fixed-policy radii. Values beyond the admitted amplitude domain are analytical continuations. (b) Fixed-policy radii versus common delay for front and rear placements. At 0.4 s the rear limiting row moves to follower 10.}
-\label{fig:linear}
+\refstepcounter{figure}\label{fig:linear}
+\par\smallskip{\small Figure~\thefigure}\par
 \end{figure}
 
 \subsection*{Engineering implications for sparse actuation placement}
@@ -133,8 +134,8 @@ The two endpoint-screened controllers use the same candidates, information and p
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=.96\linewidth]{fig4_paired_tradeoff.pdf}
-\caption{\textbf{Paired margin-priority trade-off at the scan ceiling.} Differences are margin-priority minus endpoint-screened for the same seed. (a) Endpoint and final-3-s maximum gap-error differences; negative values favor margin priority. (b) Normalized distance-deficit differences; positive values indicate greater loss. All 12 paired differences have the same sign for each outcome.}
-\label{fig:paired}
+\refstepcounter{figure}\label{fig:paired}
+\par\smallskip{\small Figure~\thefigure}\par
 \end{figure}
 
 \subsection*{Cross-model prefix evidence}
@@ -204,7 +205,7 @@ where $T_r=60$ s and the external leader is excluded. This target-speed distance
 \subsection*{Statistical Analyses}
 For each declared layout-grid cell, category A requires recovery by the evaluated controller. Category B requires failure, nonempty prefix $P$, and a logged first prefix gap below 4 m before any prefix collision; the structural theorem makes this crossing independent of controllers behind the prefix under the stated topology. Category C contains evaluated failures without this prefix witness; they remain unresolved for other admissible controllers. Category D denotes an unevaluated cell. Exact active indices and witness conditions appear in Supplementary Table~\ref{SM-tab:layouts} and section S7; no online reordering is allowed.
 
-The primary grid uses 12 paired seeds. Other placements use 12 seeds through $2.5\,\mathrm{m\,s^{-2}}$ and six at higher amplitudes. Grid endpoints are the largest evaluated amplitude with at least 50\% recovery; ceiling success is reported as censored. Paired contrasts at $\alpha=4.5\,\mathrm{m\,s^{-2}}$ use all 12 paired seeds and 20,000 seed-level bootstrap resamples of the median, matching the analysis script. The margin-priority tolerance was selected using seed 3, which is included in these descriptive paired comparisons. Correlated time frames and amplitude cells are not treated as independent samples.
+The primary grid uses 12 paired seeds. Other placements use 12 seeds through $2.5\,\mathrm{m\,s^{-2}}$ and six at higher amplitudes. Grid endpoints are the largest evaluated amplitude with at least 50\% recovery; ceiling success is reported as censored. Paired contrasts at $\alpha=4.5\,\mathrm{m\,s^{-2}}$ use all 12 paired seeds and 20,000 seed-level bootstrap resamples of the median. The margin-priority tolerance was selected using seed 3, which is included in these descriptive paired comparisons. Correlated time frames and amplitude cells are not treated as independent samples.
 
 The predictor uses 36 development and 36 configuration-disjoint test records. Its margin feature is the minimum normalized endpoint margin over vehicle, time and constraint at $\alpha=0$; a $0.25\,\mathrm{m\,s^{-2}}$ probe supplies its finite-difference slope. Distance is the absolute index distance from the source to the nearest active CAV. Predictions are clipped to $[0,5]\,\mathrm{m\,s^{-2}}$. Supplementary Fig.~\ref{SM-fig:predictor} reports design rank, conditioning, censoring and configuration-specific errors.
 
@@ -221,10 +222,10 @@ The authors declare no competing interests.
 OpenAI ChatGPT and Codex assisted with manuscript organization and English expression, literature-search screening, code drafting and debugging, figure-script editing, and discussion of theoretical arguments and interpretation of simulation outputs. Scientific decisions and responsibility for the submitted content remain with the authors. Figures were produced using numerical plotting and vector-drawing code.
 
 \section*{Data availability}
-Numerical source data and simulation outputs are publicly available at \url{https://github.com/lanston12/directional-recovery-obstructions}, with the scientific data frozen in release v1.0.0. The release includes the primary 1,848-run nonlinear study, the separate 24-run OVM/FVD extension, sampled-linear responses, representative trajectories, event logs and figure-source tables. The source-data inventory maps displays to their numerical inputs. Data are accessible without an access request.
+Numerical source data and simulation outputs are publicly available in the frozen data release \href{https://github.com/lanston12/directional-recovery-obstructions/releases/tag/v1.0.0}{v1.0.0}. The release includes the primary 1,848-run nonlinear study, the separate 24-run OVM/FVD extension, sampled-linear responses, representative trajectories, event logs and figure-source tables. The source-data inventory maps displays to their numerical inputs. Data are accessible without an access request.
 
 \section*{Code availability}
-Simulation, verification and analysis code and configurations are available at \url{https://github.com/lanston12/directional-recovery-obstructions}, release v1.0.0. Release v1.0.1-ce-transfer preserves the present manuscript, table and figure-format adjustments with the same scientific data. The repository README gives dependencies and commands; \texttt{scripts/check\_v6\_evidence.py} and \texttt{scripts/check\_v7\_extension.py} verify the prefix evidence without rerunning the primary grid.
+Simulation, verification and analysis code and configurations are available at \url{https://github.com/lanston12/directional-recovery-obstructions}, with the original code frozen in \href{https://github.com/lanston12/directional-recovery-obstructions/releases/tag/v1.0.0}{v1.0.0}. The \href{https://github.com/lanston12/directional-recovery-obstructions/releases/tag/v1.0.1-ce-transfer}{CE-transfer snapshot} and \href{https://github.com/lanston12/directional-recovery-obstructions/releases/tag/v1.0.2-ce-final}{final CE snapshot} preserve manuscript sources and figure-format adjustments with the same scientific data. The repository README gives dependencies and commands; \texttt{scripts/check\_v6\_evidence.py} and \texttt{scripts/check\_v7\_extension.py} verify the prefix evidence without rerunning the primary grid.
 
 \FloatBarrier
 \section*{Supplementary information}
@@ -234,4 +235,19 @@ Supplementary Text sections S1--S7; Supplementary Figs.~\ref{SM-fig:vertices}--\
 \begingroup\footnotesize
 \bibliography{refs}
 \endgroup
+\clearpage
+\section*{Figure and table legends}
+\noindent\textbf{Table 1.} Necessary-condition placement screening in the nonlinear IDM study. Each layout declares 168 amplitude--seed cells. Evaluated cells equal A+B+C; A is recovery by the evaluated controller, B is a witnessed prefix obstruction, C is unresolved failure and D is unevaluated. Counts are correlated grid records.
+
+\noindent\textbf{Figure 1.} \textbf{Finite-amplitude recovery and directional obstruction.} (a) Recovery requires path safety, a moving terminal target and bounded distance deficit by a deadline. (b) With fixed leader path, delayed histories, parameters, active set and directed topology, downstream actuation cannot alter a preceding uncontrolled prefix. A crossing below the safety bound obstructs recovery; collision is assessed separately at zero net gap. (c) Nonlinear trajectory witnesses and sampled-linear reserves provide complementary levels of evidence; loss is evaluated separately from the displayed affine-row reserve. (d) Layout schematics are not to scale. Prefix lengths are $|P|=0,0,18,36$ for front, even, middle and rear, respectively. The ratios 93/102 and 105/107 count class-B failures with prefix witnesses among observed failures in the correlated layout grid. Equal scalar tail transfer can coexist with different local sampled-linear reserves (Supplementary Fig.~\ref{SM-fig:tail}).
+
+\noindent\textbf{Figure 2.} \textbf{Representative finite-disturbance trajectories.} (a--c) Speed fields for the wave-damping rule (Wave), endpoint-screened controller (Endpoint) and margin-priority endpoint-screened controller (Margin priority) at $N=40$, requested $\alpha=4.5\,\mathrm{m\,s^{-2}}$ and seed 3. The wave-rule field ends at its first collision (19.3 s). (d) Minimum net gap; the dashed line marks the specified 4-m safety bound. Aggregate outcomes are reported separately.
+
+\noindent\textbf{Figure 3.} \textbf{Spatial mechanism and nonlinear obstruction classification.} (a) Active indices (blue) and uncontrolled preceding prefixes (orange) for four $N=40$ layouts. (b--e) Seed-by-requested-amplitude outcomes for the margin-priority endpoint-screened controller with IDM followers under the same delays and physical limits. Column spacing is categorical. A denotes recovery, B a prefix-safety witness, C a failed cell unresolved by the prefix test and D an unevaluated cell. Panel titles give A/B/C/D totals and B among observed failures. Exact active indices appear in Supplementary Table~\ref{SM-tab:layouts}.
+
+\noindent\textbf{Figure 4.} \textbf{Constraint-level sampled-linear reserve.} (a) Selected candidate constraint radii at 0.2 s common delay; black rings identify full fixed-policy radii. Values beyond the admitted amplitude domain are analytical continuations. (b) Fixed-policy radii versus common delay for front and rear placements. At 0.4 s the rear limiting row moves to follower 10.
+
+\noindent\textbf{Figure 5.} \textbf{Paired margin-priority trade-off at the scan ceiling.} Differences are margin-priority minus endpoint-screened for the same seed. (a) Endpoint and final-3-s maximum gap-error differences; negative values favor margin priority. (b) Normalized distance-deficit differences; positive values indicate greater loss. All 12 paired differences have the same sign for each outcome.
+
+
 \end{document}

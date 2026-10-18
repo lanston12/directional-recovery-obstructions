@@ -163,13 +163,15 @@ c.text(50, 9.5, "Distinct nonlinear and sampled-linear evidence",
 d = panel([0.51, 0.025, 0.465, 0.475], "d", "Spatial implication")
 d.text(50, 83.5, r"Four active CAVs in each nonlinear $N=40$ layout",
        ha="center", fontsize=8.1, color=SLATE)
-rows = [("Front", 71, [0, 1, 2, 3], None),
-        ("Even", 56.5, [0, 2, 5, 7], None),
-        ("Middle", 42, [2, 3, 4, 5], "93/102"),
-        ("Rear", 27.5, [4, 5, 6, 7], "105/107")]
+d.text(50, 77.5, "Schematic; not to scale", ha="center", fontsize=7.6, color=SLATE)
+rows = [("Front", 67.5, [0, 1, 2, 3], None, 0),
+        ("Even", 53.5, [0, 2, 5, 7], None, 0),
+        ("Middle", 39.5, [2, 3, 4, 5], "93/102", 18),
+        ("Rear", 25.5, [4, 5, 6, 7], "105/107", 36)]
 xs = [27, 33, 39, 45, 51, 57, 63, 69]
-for name, y, actives, count in rows:
-    d.text(6, y, name, va="center", fontsize=8.8, weight="bold", color=NAVY)
+for name, y, actives, count, prefix_length in rows:
+    d.text(6, y+2, name, va="center", fontsize=8.8, weight="bold", color=NAVY)
+    d.text(6, y-4, rf"$|P|={prefix_length}$", va="center", fontsize=7.9, color=SLATE)
     first = min(actives)
     if first:
         d.add_patch(Rectangle((xs[0]-3, y-4.2), xs[first]-xs[0], 8.4,
@@ -181,10 +183,8 @@ for name, y, actives, count in rows:
                            edgecolor=BLUE if i in actives else SLATE,
                            linewidth=0.95, zorder=2))
     if count:
-        d.text(81, y+2.5, count, fontsize=8.6, weight="bold", color=ORANGE)
-        d.text(81, y-3, "witnesses", fontsize=7.4, color=SLATE)
-    else:
-        d.text(81, y, "empty $P$", fontsize=8.0, color=SLATE, va="center")
+        d.text(76, y+1.5, count, fontsize=8.6, weight="bold", color=ORANGE)
+        d.text(76, y-4, "B / failures", fontsize=7.0, color=SLATE)
 d.text(50, 13.5, "Equal tail transfer can coexist with different",
        ha="center", fontsize=8.0, color=NAVY)
 d.text(50, 7.5, "local constraint reserves (Supplementary Fig. S2).",
